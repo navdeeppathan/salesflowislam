@@ -344,20 +344,32 @@ class OrderController extends Controller
                 
             }
 
-            $qb = new QuickbooksController();
-
-            $response = $qb->createInvoice($customer, $order);
-
-            if (isset($response['Invoice']['Id'])) {
-                $order->update([
-                    'qb_invoice_id' => $response['Invoice']['Id']
-                ]);
-            }
+          
 
            
 
         } catch (\Exception $e) {
             \Log::error('Xero Invoice Error: ' . $e->getMessage());
+        }
+
+        try {
+            $customer = User::find($order->user_id);
+
+            // ✅ Only if customer has Xero contact
+            if ($customer && $customer->qb_customer_id) {
+
+                $qb = new QuickbooksController();
+
+                $response = $qb->createInvoice($customer, $order);
+
+                if (isset($response['Invoice']['Id'])) {
+                    $order->update([
+                        'qb_invoice_id' => $response['Invoice']['Id']
+                    ]);
+                }
+            }
+        } catch (\Exception $e) {
+            \Log::error('QuickBooks Invoice Error: ' . $e->getMessage());
         }
 
         return response()->json(['success' => true]);

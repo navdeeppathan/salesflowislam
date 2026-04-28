@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuickbookLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\QuickbookToken;
 use App\Models\User;
+use Carbon\Carbon;
 
 class QuickbooksController extends Controller
 {
@@ -85,84 +87,176 @@ class QuickbooksController extends Controller
     // 👤 CREATE CUSTOMER
     public function createCustomer($customer)
     {
-        $qb = QuickbookToken::first();
-        $token = $this->getValidToken();
+        try {
+            $qb = QuickbookToken::first();
+            $token = $this->getValidToken();
 
-        $response = Http::withToken($token)
-            ->post("https://sandbox-quickbooks.api.intuit.com/v3/company/{$qb->realm_id}/customer", [
-                "DisplayName" => $customer->business_name,
+            $url = "https://sandbox-quickbooks.api.intuit.com/v3/company/{$qb->realm_id}/customer?minorversion=75";
+
+            $requestData = [
+                "DisplayName" => $customer->business_name ?? $customer->name,
                 "PrimaryEmailAddr" => [
                     "Address" => $customer->email
                 ]
-            ]);
+            ];
+            $response = Http::withToken($token)
+            ->withHeaders([
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+            ])
+            ->post($url, $requestData);
 
-        return $response->json();
+            // ✅ LOG
+            $this->logQB('customer', $requestData, $response);
+            return $response->json();
+
+        } catch (\Exception $e) {
+            \Log::error('QuickBooks Customer Error: ' . $e->getMessage());
+        }
     }
 
     public function syncCustomer($id)
     {
-        $customer = User::findOrFail($id);
+        try {
+            $customer = User::findOrFail($id);
 
-        $qb = new QuickbooksController();
 
-        $response = $qb->createCustomer($customer);
+            $qb = new QuickbooksController();
 
-        if (isset($response['Customer']['Id'])) {
-            $customer->update([
-                'qb_customer_id' => $response['Customer']['Id']
-            ]);
+            $response = $qb->createCustomer($customer);
+            
+
+
+            if (isset($response['Customer']['Id'])) {
+                $customer->update([
+                    'qb_customer_id' => $response['Customer']['Id']
+                ]);
+            }
+
+            return back()->with('success', 'Synced to QuickBooks');
+
+        } catch (\Exception $e) {
+            \Log::error('QuickBooks Customer Error: ' . $e->getMessage());
+
+            return back()->with('error', 'Failed to sync with QuickBooks');
         }
-
-        return back()->with('success', 'Synced to QuickBooks');
     }
-    // 📦 CREATE ITEM
+    // 📦 CREATE ITEMAS
     public function createItem($product)
     {
-        $qb = QuickbookToken::first();
-        $token = $this->getValidToken();
+        try {
+            $qb = QuickbookToken::first();
+            $token = $this->getValidToken();
 
-        $response = Http::withToken($token)
-            ->post("https://sandbox-quickbooks.api.intuit.com/v3/company/{$qb->realm_id}/item", [
+            $url = "https://sandbox-quickbooks.api.intuit.com/v3/company/{$qb->realm_id}/item?minorversion=75";
+
+            $requestData = [
                 "Name" => $product->title,
-                "Type" => "Service",
-                "IncomeAccountRef" => [
-                    "value" => "79"
-                ]
-            ]);
+                "Type" => "Inventory",
+                "TrackQtyOnHand" => true,
+                "QtyOnHand" => 10,
+                "InvStartDate" => Carbon::now()->format('Y-m-d'),
+                "IncomeAccountRef" => ["value" => "79"],
+                "ExpenseAccountRef" => ["value" => "80"],
+                "AssetAccountRef" => ["value" => "81"],
+            ];
 
-        return $response->json();
+            $response = Http::withToken($token)
+                ->withHeaders([
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json',
+                ])
+                ->post($url, $requestData);
+
+            // ✅ LOG
+            $this->logQB('item', $requestData, $response);
+
+
+            // 🔥 DEBUG
+            if ($response->failed()) {
+                \Log::error('QB Item Error', [
+                    'status' => $response->status(),
+                    'body' => $response->body()
+                ]);
+
+               
+            }
+
+            return $response->json();
+
+        } catch (\Exception $e) {
+            \Log::error('QuickBooks Item Error: ' . $e->getMessage());
+        }
     }
 
     // 🧾 CREATE INVOICE
     public function createInvoice($customer, $order)
     {
-        $qb = QuickbookToken::first();
-        $token = $this->getValidToken();
+        try {
+            $qb = QuickbookToken::first();
+            $token = $this->getValidToken();
 
-        $lines = [];
+            $url = "https://sandbox-quickbooks.api.intuit.com/v3/company/{$qb->realm_id}/invoice?minorversion=75";
 
-        foreach ($order->items as $item) {
-            $lines[] = [
-                "Amount" => $item->price * $item->quantity,
-                "DetailType" => "SalesItemLineDetail",
-                "SalesItemLineDetail" => [
-                    "ItemRef" => [
-                        "value" => $item->product->qb_item_id
-                    ],
-                    "Qty" => $item->quantity,
-                    "UnitPrice" => $item->price
-                ]
-            ];
-        }
+            $lines = [];
 
-        $response = Http::withToken($token)
-            ->post("https://sandbox-quickbooks.api.intuit.com/v3/company/{$qb->realm_id}/invoice", [
+            foreach ($order->items as $item) {
+                $lines[] = [
+                    "Amount" => $item->price * $item->quantity,
+                    "DetailType" => "SalesItemLineDetail",
+                    "SalesItemLineDetail" => [
+                        "ItemRef" => [
+                            "value" => $item->product->qb_item_id
+                        ],
+                        "Qty" => $item->quantity,
+                        "UnitPrice" => $item->price
+                    ]
+                ];
+            }
+
+            $requestData = [
                 "CustomerRef" => [
                     "value" => $customer->qb_customer_id
                 ],
                 "Line" => $lines
-            ]);
+            ];
 
-        return $response->json();
+            $response = Http::withToken($token)
+                ->withHeaders([
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json',
+                ])
+                ->post($url, $requestData);
+
+            // ✅ LOG
+            $this->logQB('invoice', $requestData, $response);
+
+            // 🔥 DEBUG (IMPORTANT)
+            if ($response->failed()) {
+                \Log::error('QB Invoice Error', [
+                    'status' => $response->status(),
+                    'body' => $response->body()
+                ]);
+
+                
+            }
+
+            return $response->json();
+
+        } catch (\Exception $e) {
+           \Log::error('QuickBooks Invoice Error: ' . $e->getMessage());
+        }
+    }
+
+    private function logQB($type, $request, $response)
+    {
+        QuickbookLog::create([
+            'user_id' => auth()->id(),
+            'type' => $type,
+            'request' => json_encode($request),
+            'response' => $response->body(),
+            'status' => $response->status(),
+            'message' => $response->failed() ? 'Failed' : 'Success'
+        ]);
     }
 }

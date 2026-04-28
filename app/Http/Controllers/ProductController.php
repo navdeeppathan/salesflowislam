@@ -94,6 +94,14 @@ class ProductController extends Controller
                 ]);
             }
 
+            
+
+        } catch (\Exception $e) {
+            \Log::error('Xero Sync Failed: ' . $e->getMessage());
+        }
+
+        try {
+
             $qb = new QuickbooksController();
 
             $response = $qb->createItem($product);
@@ -103,11 +111,9 @@ class ProductController extends Controller
                     'qb_item_id' => $response['Item']['Id']
                 ]);
             }
-
-        } catch (\Exception $e) {
-            \Log::error('Xero Sync Failed: ' . $e->getMessage());
+        }catch (\Exception $e) {
+            \Log::error('QuickBooks Sync Failed: ' . $e->getMessage());
         }
-
         return redirect()->back()->with('success', 'Inventory item added successfully');
     }
 
