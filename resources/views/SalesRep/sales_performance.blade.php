@@ -39,7 +39,7 @@
             overflow-x: hidden;
             overflow-y: auto;
             scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,0.2) transparent;
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
         }
 
         .sidebar::-webkit-scrollbar {
@@ -47,7 +47,7 @@
         }
 
         .sidebar::-webkit-scrollbar-thumb {
-            background-color: rgba(255,255,255,0.2);
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 3px;
         }
 
@@ -59,7 +59,7 @@
         /* Header Section */
         .sidebar-header {
             padding: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -101,7 +101,7 @@
             width: 32px;
             height: 32px;
             border-radius: 8px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border: none;
             color: #94a3b8;
             cursor: pointer;
@@ -113,7 +113,7 @@
         }
 
         .sidebar-toggle:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
         }
 
@@ -150,7 +150,7 @@
         }
 
         .section-header:hover {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             color: #94a3b8;
         }
 
@@ -210,7 +210,7 @@
         }
 
         .nav-item:hover {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             color: white;
         }
 
@@ -300,7 +300,7 @@
         /* Footer Section */
         .sidebar-footer {
             padding: 16px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: auto;
         }
 
@@ -315,7 +315,7 @@
         }
 
         .user-profile:hover {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .user-avatar {
@@ -323,7 +323,7 @@
             height: 36px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             flex-shrink: 0;
         }
 
@@ -357,7 +357,7 @@
             margin-top: 12px;
             padding: 10px;
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #94a3b8;
             border-radius: 8px;
             cursor: pointer;
@@ -386,7 +386,7 @@
             transition: margin-left var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .sidebar.collapsed + .main-content {
+        .sidebar.collapsed+.main-content {
             margin-left: var(--sidebar-collapsed-width);
         }
 
@@ -394,7 +394,7 @@
         .mobile-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 40;
             opacity: 0;
             visibility: hidden;
@@ -450,142 +450,145 @@
         }
     </style>
 
-        <!-- Header -->
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
-            <div class="flex items-center justify-between px-6 py-4">
-                <div class="flex items-center gap-4">
-                    <button onclick="toggleSidebar()" class="lg:hidden p-2 hover:bg-slate-100 rounded-lg">
-                        <i class="fas fa-bars text-slate-600"></i>
-                    </button>
-                    <div>
-                        <h1 class="font-display text-2xl font-bold text-slate-900">Performance Analytics</h1>
-                        <p class="text-sm text-slate-500">Track your sales KPIs and metrics</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <select class="px-4 py-2 border border-slate-200 rounded-lg text-sm">
-                        <option>April 2026</option>
-                        <option>March 2026</option>
-                        <option>Q1 2026</option>
-                        <option>YTD 2026</option>
-                    </select>
-                    <button class="relative p-2 text-slate-600 hover:text-blue-900 transition">
-                        <i class="fas fa-bell text-xl"></i>
-                        <span class="absolute top-0 right-0 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">8</span>
-                    </button>
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+        <div class="flex items-center justify-between px-6 py-4">
+            <div class="flex items-center gap-4">
+                <button onclick="toggleSidebar()" class="lg:hidden p-2 hover:bg-slate-100 rounded-lg">
+                    <i class="fas fa-bars text-slate-600"></i>
+                </button>
+                <div>
+                    <h1 class="font-display text-2xl font-bold text-slate-900">Performance Analytics</h1>
+                    <p class="text-sm text-slate-500">Track your sales KPIs and metrics</p>
                 </div>
             </div>
-        </header>
-
-        <div class="p-6">
-            <!-- KPI Cards -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                <div class="kpi-card">
-                    <p class="text-sm text-slate-500 mb-1">Revenue</p>
-                    <h3 class="font-display text-3xl font-bold text-slate-900">£128.5K</h3>
-                    <p class="text-xs text-emerald-600 mt-1"><i class="fas fa-arrow-up mr-1"></i>12.5% vs last month</p>
-                </div>
-                <div class="kpi-card">
-                    <p class="text-sm text-slate-500 mb-1">Orders Closed</p>
-                    <h3 class="font-display text-3xl font-bold text-slate-900">42</h3>
-                    <p class="text-xs text-emerald-600 mt-1"><i class="fas fa-arrow-up mr-1"></i>8.2% vs last month</p>
-                </div>
-                <div class="kpi-card">
-                    <p class="text-sm text-slate-500 mb-1">Avg Deal Size</p>
-                    <h3 class="font-display text-3xl font-bold text-slate-900">£3,060</h3>
-                    <p class="text-xs text-emerald-600 mt-1"><i class="fas fa-arrow-up mr-1"></i>4.1% vs last month</p>
-                </div>
-                <div class="kpi-card">
-                    <p class="text-sm text-slate-500 mb-1">Win Rate</p>
-                    <h3 class="font-display text-3xl font-bold text-slate-900">68%</h3>
-                    <p class="text-xs text-amber-600 mt-1"><i class="fas fa-minus mr-1"></i>1.2% vs last month</p>
-                </div>
+            <div class="flex items-center gap-3">
+                <select class="px-4 py-2 border border-slate-200 rounded-lg text-sm">
+                    <option>April 2026</option>
+                    <option>March 2026</option>
+                    <option>Q1 2026</option>
+                    <option>YTD 2026</option>
+                </select>
+                <button class="relative p-2 text-slate-600 hover:text-blue-900 transition">
+                    <i class="fas fa-bell text-xl"></i>
+                    <span
+                        class="absolute top-0 right-0 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">8</span>
+                </button>
             </div>
+        </div>
+    </header>
 
-            <!-- Charts Row 1 -->
-            <div class="grid lg:grid-cols-2 gap-6 mb-6">
-                <div class="bg-white rounded-xl p-6 border border-slate-200">
-                    <h3 class="font-semibold text-slate-900 mb-4">Revenue vs Target</h3>
-                    <div class="h-64">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 border border-slate-200">
-                    <h3 class="font-semibold text-slate-900 mb-4">Sales by Product Category</h3>
-                    <div class="h-64">
-                        <canvas id="categoryChart"></canvas>
-                    </div>
-                </div>
+    <div class="p-6">
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div class="kpi-card">
+                <p class="text-sm text-slate-500 mb-1">Revenue</p>
+                <h3 class="font-display text-3xl font-bold text-slate-900">£ {{ number_format($revenue / 1000, 1) }}K</h3>
+                <p class="text-xs text-emerald-600 mt-1"><i class="fas fa-arrow-up mr-1"></i>{{ $growth }}% vs last month
+                </p>
             </div>
-
-            <!-- Charts Row 2 -->
-            <div class="grid lg:grid-cols-2 gap-6 mb-6">
-                <div class="bg-white rounded-xl p-6 border border-slate-200">
-                    <h3 class="font-semibold text-slate-900 mb-4">Customer Acquisition & Retention</h3>
-                    <div class="h-64">
-                        <canvas id="customerChart"></canvas>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 border border-slate-200">
-                    <h3 class="font-semibold text-slate-900 mb-4">Sales Cycle Length (Days)</h3>
-                    <div class="h-64">
-                        <canvas id="cycleChart"></canvas>
-                    </div>
-                </div>
+            <div class="kpi-card">
+                <p class="text-sm text-slate-500 mb-1">Orders Closed</p>
+                <h3 class="font-display text-3xl font-bold text-slate-900">{{ $orders }}</h3>
             </div>
+            <div class="kpi-card">
+                <p class="text-sm text-slate-500 mb-1">Avg Deal Size</p>
+                <h3 class="font-display text-3xl font-bold text-slate-900">£ {{ number_format($avgDeal, 0) }}</h3>
+            </div>
+            <div class="kpi-card">
+                <p class="text-sm text-slate-500 mb-1">Win Rate</p>
+                <h3 class="font-display text-3xl font-bold text-slate-900">{{ $winRate }}%</h3>
+            </div>
+        </div>
 
-            <!-- Activity Metrics -->
+        <!-- Charts Row 1 -->
+        <div class="grid lg:grid-cols-2 gap-6 mb-6">
             <div class="bg-white rounded-xl p-6 border border-slate-200">
-                <h3 class="font-semibold text-slate-900 mb-4">Activity Metrics</h3>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="text-center p-4 bg-slate-50 rounded-xl">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 text-blue-900">
-                            <i class="fas fa-phone text-xl"></i>
-                        </div>
-                        <p class="text-2xl font-bold text-slate-900">86</p>
-                        <p class="text-sm text-slate-500">Calls Made</p>
-                        <p class="text-xs text-emerald-600 mt-1">+12% vs target</p>
-                    </div>
-                    <div class="text-center p-4 bg-slate-50 rounded-xl">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 text-green-700">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </div>
-                        <p class="text-2xl font-bold text-slate-900">124</p>
-                        <p class="text-sm text-slate-500">Emails Sent</p>
-                        <p class="text-xs text-emerald-600 mt-1">+8% vs target</p>
-                    </div>
-                    <div class="text-center p-4 bg-slate-50 rounded-xl">
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2 text-amber-700">
-                            <i class="fas fa-walking text-xl"></i>
-                        </div>
-                        <p class="text-2xl font-bold text-slate-900">18</p>
-                        <p class="text-sm text-slate-500">Site Visits</p>
-                        <p class="text-xs text-emerald-600 mt-1">+5% vs target</p>
-                    </div>
-                    <div class="text-center p-4 bg-slate-50 rounded-xl">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2 text-purple-700">
-                            <i class="fas fa-handshake text-xl"></i>
-                        </div>
-                        <p class="text-2xl font-bold text-slate-900">12</p>
-                        <p class="text-sm text-slate-500">Meetings</p>
-                        <p class="text-xs text-red-600 mt-1">-2 vs target</p>
-                    </div>
+                <h3 class="font-semibold text-slate-900 mb-4">Revenue vs Target</h3>
+                <div class="h-64">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-slate-200">
+                <h3 class="font-semibold text-slate-900 mb-4">Sales by Product Category</h3>
+                <div class="h-64">
+                    <canvas id="categoryChart"></canvas>
                 </div>
             </div>
         </div>
-   
+
+        <!-- Charts Row 2 -->
+        <!-- <div class="grid lg:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-white rounded-xl p-6 border border-slate-200">
+                                    <h3 class="font-semibold text-slate-900 mb-4">Customer Acquisition & Retention</h3>
+                                    <div class="h-64">
+                                        <canvas id="customerChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 border border-slate-200">
+                                    <h3 class="font-semibold text-slate-900 mb-4">Sales Cycle Length (Days)</h3>
+                                    <div class="h-64">
+                                        <canvas id="cycleChart"></canvas>
+                                    </div>
+                                </div>
+                            </div> -->
+
+        <!-- Activity Metrics -->
+        <!-- <div class="bg-white rounded-xl p-6 border border-slate-200">
+                    <h3 class="font-semibold text-slate-900 mb-4">Activity Metrics</h3>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="text-center p-4 bg-slate-50 rounded-xl">
+                            <div
+                                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 text-blue-900">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <p class="text-2xl font-bold text-slate-900">86</p>
+                            <p class="text-sm text-slate-500">Calls Made</p>
+                            <p class="text-xs text-emerald-600 mt-1">+12% vs target</p>
+                        </div>
+                        <div class="text-center p-4 bg-slate-50 rounded-xl">
+                            <div
+                                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 text-green-700">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <p class="text-2xl font-bold text-slate-900">124</p>
+                            <p class="text-sm text-slate-500">Emails Sent</p>
+                            <p class="text-xs text-emerald-600 mt-1">+8% vs target</p>
+                        </div>
+                        <div class="text-center p-4 bg-slate-50 rounded-xl">
+                            <div
+                                class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2 text-amber-700">
+                                <i class="fas fa-walking text-xl"></i>
+                            </div>
+                            <p class="text-2xl font-bold text-slate-900">18</p>
+                            <p class="text-sm text-slate-500">Site Visits</p>
+                            <p class="text-xs text-emerald-600 mt-1">+5% vs target</p>
+                        </div>
+                        <div class="text-center p-4 bg-slate-50 rounded-xl">
+                            <div
+                                class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2 text-purple-700">
+                                <i class="fas fa-handshake text-xl"></i>
+                            </div>
+                            <p class="text-2xl font-bold text-slate-900">12</p>
+                            <p class="text-sm text-slate-500">Meetings</p>
+                            <p class="text-xs text-red-600 mt-1">-2 vs target</p>
+                        </div>
+                    </div>
+                </div> -->
+    </div>
+
     <script>
-      // ===== SIDEBAR COLLAPSE FUNCTIONALITY =====
+        // ===== SIDEBAR COLLAPSE FUNCTIONALITY =====
 
         // Initialize sidebar state from localStorage
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sidebar = document.getElementById('sidebar');
             const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-            
+
             if (isCollapsed && window.innerWidth > 1024) {
                 sidebar.classList.add('collapsed');
             }
-            
+
             // Initialize section states from localStorage
             const sections = ['section-main', 'section-analytics', 'section-tools'];
             sections.forEach(sectionId => {
@@ -599,10 +602,10 @@
         // Toggle sidebar collapse (desktop only)
         function toggleSidebar() {
             if (window.innerWidth <= 1024) return;
-            
+
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('collapsed');
-            
+
             // Save state to localStorage
             localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
         }
@@ -611,10 +614,10 @@
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             const isCollapsed = section.classList.toggle('collapsed');
-            
+
             // Save state to localStorage
             localStorage.setItem(sectionId + '_collapsed', isCollapsed);
-            
+
             // Update aria-expanded for accessibility
             const header = section.querySelector('.section-header');
             header.setAttribute('aria-expanded', !isCollapsed);
@@ -625,7 +628,7 @@
         function openMobileSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('mobileOverlay');
-            
+
             sidebar.classList.add('mobile-open');
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -634,14 +637,14 @@
         function closeMobileSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('mobileOverlay');
-            
+
             sidebar.classList.remove('mobile-open');
             overlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         // Close mobile sidebar on window resize to desktop
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth > 1024) {
                 closeMobileSidebar();
             }
@@ -651,7 +654,7 @@
 
         // Allow keyboard navigation for section headers
         document.querySelectorAll('.section-header').forEach(header => {
-            header.addEventListener('keydown', function(e) {
+            header.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     this.click();
@@ -660,7 +663,7 @@
         });
 
         // Escape key to close mobile sidebar
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeMobileSidebar();
             }
@@ -679,56 +682,74 @@
             }
         }
 
-        // Revenue Chart
         new Chart(document.getElementById('revenueChart'), {
             type: 'line',
             data: {
-                labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
-                datasets: [{
-                    label: 'Actual',
-                    data: [98, 112, 105, 118, 124, 128.5],
-                    borderColor: '#1e40af',
-                    backgroundColor: 'rgba(30, 64, 175, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }, {
-                    label: 'Target',
-                    data: [100, 110, 115, 120, 125, 130],
-                    borderColor: '#d4af37',
-                    borderDash: [5, 5],
-                    fill: false,
-                    tension: 0.4
-                }]
+                labels: @json($labels),
+                datasets: [
+                    {
+                        label: 'Actual',
+                        data: @json($monthlyRevenue),
+                        borderColor: '#1e40af',
+                        backgroundColor: 'rgba(30,64,175,0.15)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#1e40af'
+                    },
+                    {
+                        label: 'Target',
+                        data: @json($targetData),
+                        borderColor: '#d4af37',
+                        borderDash: [6, 6],
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 4
+                    }
+                ]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'top' } },
+                plugins: {
+                    legend: { position: 'top' }
+                },
                 scales: {
                     y: {
-                        ticks: { callback: value => '£' + value + 'K' }
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return '£' + value.toLocaleString();
+                            }
+                        }
                     }
                 }
             }
         });
 
-        // Category Chart
         new Chart(document.getElementById('categoryChart'), {
             type: 'doughnut',
             data: {
-                labels: ['Beverages', 'Food', 'Frozen', 'Snacks', 'Household'],
+                labels: @json($categoryData->keys()),
                 datasets: [{
-                    data: [45, 25, 15, 10, 5],
-                    backgroundColor: ['#1e40af', '#059669', '#f59e0b', '#dc2626', '#64748b']
+                    data: @json($categoryData->values()),
+                    backgroundColor: [
+                        '#1e40af',
+                        '#059669',
+                        '#f59e0b',
+                        '#dc2626',
+                        '#64748b',
+                        '#9333ea'
+                    ]
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'right' } }
+                plugins: {
+                    legend: { position: 'right' }
+                }
             }
         });
-
         // Customer Chart
         new Chart(document.getElementById('customerChart'), {
             type: 'bar',

@@ -458,14 +458,16 @@
                     <i class="fas fa-bars text-slate-600"></i>
                 </button>
                 <div>
-                    <h1 class="font-display text-2xl font-bold text-slate-900">Sales Targets</h1>
-                    <p class="text-sm text-slate-500">Track your goals and achievements</p>
+                    <h1 class="font-display text-2xl font-bold text-slate-900">Performance Analytics</h1>
+                    <p class="text-sm text-slate-500">Track your sales KPIs and metrics</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
                 <select class="px-4 py-2 border border-slate-200 rounded-lg text-sm">
-                    <option>2026</option>
-                    <option>2025</option>
+                    <option>April 2026</option>
+                    <option>March 2026</option>
+                    <option>Q1 2026</option>
+                    <option>YTD 2026</option>
                 </select>
                 <button class="relative p-2 text-slate-600 hover:text-blue-900 transition">
                     <i class="fas fa-bell text-xl"></i>
@@ -476,215 +478,85 @@
         </div>
     </header>
 
-    <div class="p-6">
-        <!-- Annual Target Overview -->
-        <div class="bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-8 text-white mb-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                    <p class="text-blue-200 mb-1">Annual Target 2026</p>
-                    <h2 class="font-display text-4xl font-bold"> £{{ number_format($annualTarget) }}</h2>
-                    <p class="text-blue-200 mt-2">Senior Sales Rep Tier</p>
-                </div>
-                <div class="flex items-center gap-8">
-                    <div class="text-center">
-                        <p class="text-3xl font-bold">£{{ number_format($yearlyAchieved) }}</p>
-                        <p class="text-blue-200 text-sm">Achieved</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-3xl font-bold"> £{{ number_format($remaining) }}
-                        </p>
-                        <p class="text-blue-200 text-sm">Remaining</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-3xl font-bold text-emerald-400">
-                            {{ $percentage >= 100 ? 'Achieved' : ($percentage > 50 ? 'On Track' : 'Behind') }}
-                        </p>
-                        <p class="text-blue-200 text-sm">Status</p>
-                    </div>
-                </div>
+
+   <div class="grid lg:grid-cols-3 gap-6 p-6">
+
+    <!-- LEFT: PROFILE CARD -->
+    <div class="bg-white rounded-2xl shadow p-6 text-center">
+        <div class="flex flex-col items-center">
+            <div class="w-20 h-20 bg-blue-100 text-blue-900 flex items-center justify-center rounded-full text-2xl font-bold">
+                {{ strtoupper(substr($user->name,0,2)) }}
             </div>
-            <div class="mt-6">
-                <div class="h-3 bg-blue-950 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-yellow-400 to-yellow-300 rounded-full"
-                        style="width: {{ $percentage }}%">
-                    </div>
-                </div>
-                <p class="text-sm text-blue-200 mt-2">Q1 Complete • Q2 In Progress</p>
-            </div>
+
+            <h2 class="mt-4 text-xl font-bold text-slate-900">{{ $user->name }}</h2>
+            <p class="text-sm text-slate-500">{{ $user->email }}</p>
+
+            <span class="mt-2 px-3 py-1 text-xs bg-emerald-100 text-emerald-700 rounded-full">
+                Sales Executive
+            </span>
         </div>
 
-
-
-        <!-- KPI Targets -->
-        <div class="grid lg:grid-cols-2 gap-6 mb-8">
-            <div class="bg-white rounded-xl p-6 border border-slate-200">
-                <h3 class="font-semibold text-slate-900 mb-6">Key Performance Indicators</h3>
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-sm font-medium text-slate-700">Monthly Revenue</span>
-                            <span class="text-sm font-semibold text-emerald-600">
-                                £{{ number_format($currentMonthRevenue / 1000, 1) }}K /
-                                £{{ number_format($monthlyTargetValue / 1000, 1) }}K</span>
-                        </div>
-                        <div class="h-2 bg-slate-100 rounded-full">
-                            <div class="h-2 bg-emerald-500 rounded-full" style="width: {{ $monthlyPercent }}%"></div>
-                        </div>
-                        <p class="text-xs {{ $monthlyPercent >= 100 ? 'text-emerald-600' : 'text-amber-600' }}">
-                            {{ $monthlyPercent }}% of target
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-sm font-medium text-slate-700">Calls per Day</span>
-                            <span class="text-sm font-semibold text-emerald-600"> {{ $callsPerDay }} /
-                                {{ $callTarget }}</span>
-                        </div>
-                        <div class="h-2 bg-slate-100 rounded-full">
-                            <div class="h-2 bg-emerald-500 rounded-full" style="width: {{ $callPercent }}%"></div>
-                        </div>
-                        <p class="text-xs text-emerald-600 mt-1">+7.5% above target</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl p-6 border border-slate-200">
-                <h3 class="font-semibold text-slate-900 mb-6">Monthly Progress</h3>
-                <div class="h-80">
-                    <canvas id="monthlyProgressChart"></canvas>
-                </div>
-            </div>
+        <div class="mt-6 border-t pt-4 text-sm text-slate-600 space-y-2">
+            <p><strong>Monthly Target:</strong> £{{ number_format($user->target_amount ?? 0) }}</p>
+            <p><strong>Duration:</strong> {{ $user->target_months ?? 0 }} Months</p>
         </div>
-
-
     </div>
 
+    <!-- RIGHT: EDIT FORM -->
+    <div class="lg:col-span-2 bg-white rounded-2xl shadow p-6">
 
-    <script>
-        // ===== SIDEBAR COLLAPSE FUNCTIONALITY =====
+        <h3 class="text-lg font-bold mb-4 text-slate-900">Edit Profile</h3>
 
-        // Initialize sidebar state from localStorage
-        document.addEventListener('DOMContentLoaded', function () {
-            const sidebar = document.getElementById('sidebar');
-            const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+        @if(session('success'))
+            <div class="mb-4 p-3 bg-green-100 text-green-700 rounded">
+                {{ session('success') }}
+            </div>
+        @endif
 
-            if (isCollapsed && window.innerWidth > 1024) {
-                sidebar.classList.add('collapsed');
-            }
+        <form method="POST" action="/sales-profile-update">
+            @csrf
 
-            // Initialize section states from localStorage
-            const sections = ['section-main', 'section-analytics', 'section-tools'];
-            sections.forEach(sectionId => {
-                const isSectionCollapsed = localStorage.getItem(sectionId + '_collapsed') === 'true';
-                if (isSectionCollapsed) {
-                    document.getElementById(sectionId).classList.add('collapsed');
-                }
-            });
-        });
+            <div class="grid md:grid-cols-2 gap-4">
 
-        // Toggle sidebar collapse (desktop only)
-        function toggleSidebar() {
-            if (window.innerWidth <= 1024) return;
+                <div>
+                    <label class="text-sm text-slate-600">Full Name</label>
+                    <input type="text" name="name" value="{{ $user->name }}"
+                        class="w-full mt-1 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
+                </div>
 
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('collapsed');
+                <div>
+                    <label class="text-sm text-slate-600">Email</label>
+                    <input type="email" name="email" value="{{ $user->email }}"
+                        class="w-full mt-1 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
+                </div>
 
-            // Save state to localStorage
-            localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
-        }
+                <div>
+                    <label class="text-sm text-slate-600">Monthly Target (£)</label>
+                    <input type="number" name="target_amount" value="{{ $user->target_amount }}"
+                        class="w-full mt-1 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
+                </div>
 
-        // Toggle menu sections (accordion style)
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const isCollapsed = section.classList.toggle('collapsed');
+                <div>
+                    <label class="text-sm text-slate-600">Target Duration</label>
+                    <select name="target_months"
+                        class="w-full mt-1 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
 
-            // Save state to localStorage
-            localStorage.setItem(sectionId + '_collapsed', isCollapsed);
+                        @for($i = 1; $i <= 12; $i++)
+                            <option value="{{ $i }}" {{ $user->target_months == $i ? 'selected' : '' }}>
+                                {{ $i }} Month
+                            </option>
+                        @endfor
 
-            // Update aria-expanded for accessibility
-            const header = section.querySelector('.section-header');
-            header.setAttribute('aria-expanded', !isCollapsed);
-        }
+                    </select>
+                </div>
 
-        // ===== MOBILE SIDEBAR =====
+            </div>
 
-        function openMobileSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('mobileOverlay');
+            <button class="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-lg transition">
+                Save Changes
+            </button>
+        </form>
+    </div>
 
-            sidebar.classList.add('mobile-open');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('mobileOverlay');
-
-            sidebar.classList.remove('mobile-open');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Close mobile sidebar on window resize to desktop
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 1024) {
-                closeMobileSidebar();
-            }
-        });
-
-        // ===== KEYBOARD ACCESSIBILITY =====
-
-        // Allow keyboard navigation for section headers
-        document.querySelectorAll('.section-header').forEach(header => {
-            header.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.click();
-                }
-            });
-        });
-
-        // Escape key to close mobile sidebar
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeMobileSidebar();
-            }
-        });
-
-        // ===== COMMON FUNCTIONS =====
-
-        function openProfile() {
-            // Implement profile modal or navigation
-            console.log('Opening profile...');
-        }
-
-        function logout() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'index.html';
-            }
-        }
-
-        // Monthly Progress Chart
-        new Chart(document.getElementById('monthlyProgressChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [
-                    {
-                        label: 'Actual',
-                        data: @json($monthlyActual),
-                        backgroundColor: '#1e40af'
-                    },
-                    {
-                        label: 'Target',
-                        data: @json($monthlyTarget),
-                        backgroundColor: '#e2e8f0'
-                    }
-                ]
-            }
-        });
-    </script>
-
+</div>
 @endsection

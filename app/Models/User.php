@@ -30,6 +30,8 @@ class User extends Authenticatable
         'invoice_pay_days',
         'tier',
         'xero_contact_id',
+        'target_amount',
+        'target_months',
         'qb_customer_id'
     ];
 
@@ -53,6 +55,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id');
     }
-    
-    
+
+
 }
