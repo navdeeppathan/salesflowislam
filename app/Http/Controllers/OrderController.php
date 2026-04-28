@@ -325,8 +325,10 @@ class OrderController extends Controller
             Cart::where('user_id', auth()->id())->delete();
         }
 
+        $customer = User::find($order->user_id);
+
         try {
-            $customer = User::find($order->user_id);
+            
 
             // ✅ Only if customer has Xero contact
             if ($customer && $customer->xero_contact_id) {
@@ -344,16 +346,12 @@ class OrderController extends Controller
                 
             }
 
-          
-
-           
-
         } catch (\Exception $e) {
             \Log::error('Xero Invoice Error: ' . $e->getMessage());
         }
 
         try {
-            $customer = User::find($order->user_id);
+           
 
             // ✅ Only if customer has Xero contact
             if ($customer && $customer->qb_customer_id) {
