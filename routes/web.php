@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuickbooksController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -21,6 +22,12 @@ Route::get('/xero/tenant', [XeroController::class, 'getTenant']);
 Route::post('/customer/{id}/sync-xero', [XeroController::class, 'syncToXero'])
     ->name('customer.sync.xero');
 Route::post('/xero/invoice', [XeroController::class, 'createInvoice']);
+
+Route::get('/qb/connect', [QuickbooksController::class, 'connect']);
+Route::get('/qb/callback', [QuickbooksController::class, 'callback']);
+
+Route::post('/customer/{id}/sync-qb', [QuickbooksController::class, 'syncCustomer'])->name('customer.sync.qb');
+Route::post('/qb/invoice', [QuickbooksController::class, 'createInvoice']);
 
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');

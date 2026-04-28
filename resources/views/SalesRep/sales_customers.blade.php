@@ -943,6 +943,22 @@
                             </form>
                         @endif
 
+                         @if ($customer->status == 'active')
+                            <form action="{{ route('customer.sync.qb', $customer->id) }}" method="POST">
+                                @csrf
+                                <button 
+                                    type="submit"
+                                    @if($customer->qb_customer_id) disabled @endif
+                                    class="w-full py-2 rounded-lg text-sm font-semibold transition
+                                        {{ $customer->qb_customer_id 
+                                            ? 'bg-gray-400 cursor-not-allowed' 
+                                            : 'bg-indigo-600 hover:bg-indigo-700 text-white' }}">
+                                    
+                                    {{ $customer->qb_customer_id ? 'Synced to QuickBooks' : 'Sync to QuickBooks' }}
+                                </button>
+                            </form>
+                        @endif
+
                         <div class="flex gap-2">
                             <form action="{{ route('send.pricelist', $customer->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf

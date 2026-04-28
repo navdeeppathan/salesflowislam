@@ -94,6 +94,16 @@ class ProductController extends Controller
                 ]);
             }
 
+            $qb = new QuickbooksController();
+
+            $response = $qb->createItem($product);
+
+            if (isset($response['Item']['Id'])) {
+                $product->update([
+                    'qb_item_id' => $response['Item']['Id']
+                ]);
+            }
+
         } catch (\Exception $e) {
             \Log::error('Xero Sync Failed: ' . $e->getMessage());
         }

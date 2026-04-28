@@ -26,7 +26,8 @@ class Product extends Model
         'quantity',
         'product_type',
         'brand',
-        'xero_item_id'
+        'xero_item_id',
+        'qb_item_id'
     ];
 
     public function category()

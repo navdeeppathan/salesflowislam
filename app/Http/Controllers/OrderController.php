@@ -341,7 +341,20 @@ class OrderController extends Controller
                         'xero_invoice_id' => $response['Invoices'][0]['InvoiceID']
                     ]);
                 }
+                
             }
+
+            $qb = new QuickbooksController();
+
+            $response = $qb->createInvoice($customer, $order);
+
+            if (isset($response['Invoice']['Id'])) {
+                $order->update([
+                    'qb_invoice_id' => $response['Invoice']['Id']
+                ]);
+            }
+
+           
 
         } catch (\Exception $e) {
             \Log::error('Xero Invoice Error: ' . $e->getMessage());

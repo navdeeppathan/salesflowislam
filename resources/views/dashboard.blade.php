@@ -91,6 +91,9 @@
                 {{-- <a href="/xero/connect" class="px-8 py-3 text-sm font-extrabold uppercase tracking-widest text-slate-500 rounded-xl transition-all duration-300 hover:bg-indigo-50 hover:text-indigo-500 hover:scale-105">
                     Connect Xero
                 </a> --}}
+                <a href="/qb/connect" class="px-8 py-3 text-sm font-extrabold uppercase tracking-widest text-slate-500 rounded-xl transition-all duration-300 hover:bg-indigo-50 hover:text-indigo-500 hover:scale-105">
+                    Connect QuickBooks
+                </a>
             </div>
         </div>
 

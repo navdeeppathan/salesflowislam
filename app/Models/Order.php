@@ -23,7 +23,8 @@ class Order extends Model
         'is_active' ,
         'assigned_driver',
         'delivery_date',
-        'xero_invoice_id'       // 🔥 ADD THIS
+        'xero_invoice_id',
+        'qb_invoice_id'      // 🔥 ADD THIS
 
     ];
     public function items()
