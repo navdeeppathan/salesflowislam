@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ContainerController;
+use App\Http\Controllers\SalesDashboardController;
+use App\Http\Controllers\SalesPerformanceController;
 
 
 use App\Http\Controllers\XeroController;
@@ -385,18 +387,23 @@ Route::middleware(['auth', 'role:sale_rep'])->group(function () {
         return view('SalesRep.checkoutsalescustomer', compact('cartItems', 'cartData', 'user'));
     });
 
-    Route::get('/sales', function () {
-        return view('SalesRep.sales_dashboard');
-    });
 
-    Route::get('/sales-performance', function () {
-        return view('SalesRep.sales_performance');
-    });
 
-    Route::get('/sales-target', function () {
-        return view('SalesRep.sales_targets');
-    });
+    Route::get('/sales', [SalesDashboardController::class, 'index']);
 
+
+
+
+
+    Route::get('/sales-performance', [SalesPerformanceController::class, 'index'])
+        ->middleware('auth');
+    Route::get('/sales-profile', [SalesDashboardController::class, 'profile'])
+        ->middleware('auth');
+    Route::post('/sales-profile-update', [SalesDashboardController::class, 'updateProfile'])
+        ->middleware('auth');
+
+
+    Route::get('/sales-target', [SalesPerformanceController::class, 'targets']);
 });
 
 

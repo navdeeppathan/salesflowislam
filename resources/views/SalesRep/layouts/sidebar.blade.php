@@ -62,11 +62,11 @@
                         <span class="nav-text">Performance</span>
                         <span class="tooltip">Performance</span>
                     </a>
-                    <a href="/sales-commissions" class="nav-item {{ request()->is('sales-commissions') ? 'active' : '' }}">
+                    <!-- <a href="/sales-commissions" class="nav-item {{ request()->is('sales-commissions') ? 'active' : '' }}">
                         <span class="nav-icon"><i class="fas fa-pound-sign"></i></span>
                         <span class="nav-text">Commissions</span>
                         <span class="tooltip">Commissions</span>
-                    </a>
+                    </a> -->
                     <a href="/sales-target" class="nav-item {{ request()->is('sales-target') ? 'active' : '' }}">
                         <span class="nav-icon"><i class="fas fa-bullseye"></i></span>
                         <span class="nav-text">Targets</span>
@@ -98,13 +98,15 @@
 
         <!-- Footer -->
         <div class="sidebar-footer">
-            <div class="user-profile" onclick="openProfile()" title="View Profile">
+            <a href="/sales-profile">
+            <div class="user-profile" title="View Profile">
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Mike Thompson" class="user-avatar">
                 <div class="user-info">
                     <p class="user-name">{{Auth::user()->name}}</p>
                     <p class="user-role">{{Auth::user()->role}}</p>
                 </div>
             </div>
+            </a>
             <form method="POST" action="{{ url('/logout') }}">
                  @csrf
             {{-- <button class="logout-btn" onclick="logout()" aria-label="Logout"> --}}

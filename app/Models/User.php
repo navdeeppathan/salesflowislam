@@ -29,7 +29,9 @@ class User extends Authenticatable
         'credit_limit',
         'invoice_pay_days',
         'tier',
-        'xero_contact_id'
+        'xero_contact_id',
+        'target_amount',
+        'target_months'
     ];
 
     protected $hidden = [
@@ -52,6 +54,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id');
     }
-    
-    
+
+
 }
