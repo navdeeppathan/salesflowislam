@@ -587,7 +587,7 @@
 
         <div class="p-6">
             <!-- KPI Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 <div class="stat-card">
                     <div class="flex items-start justify-between mb-4">
                         <div>
@@ -652,7 +652,7 @@
                     <p class="text-xs text-red-600 mt-2 font-medium">Immediate action required</p>
                 </div>
 
-                <div class="stat-card">
+                <!-- <div class="stat-card">
                     <div class="flex items-start justify-between mb-4">
                         <div>
                             <p class="text-sm text-slate-500 mb-1 font-medium">Commission Earned</p>
@@ -672,7 +672,7 @@
                         <div class="progress-fill bg-emerald-500" style="width: 65%"></div>
                     </div>
                     <p class="text-xs text-slate-400 mt-2">65% of quarterly target</p>
-                </div>
+                </div> -->
             </div>
 
             <!-- Alerts Section -->
