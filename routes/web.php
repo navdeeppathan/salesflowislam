@@ -106,6 +106,16 @@ Route::get('/', function () {
     return view('Landing.index', compact('categories', 'products', 'brands'));
 });
 
+
+
+Route::get('/3dview/{product}', function ($product) {
+
+    $product = Product::find($product);
+
+    return view('3dview.index', compact('product'));
+
+})->name('3dview.index');
+
 // Route::get('/main', function () {
 //     $categories = Category::all();
 //     $products = Product::with('category')->get(); // 👈 important

@@ -27,7 +27,8 @@ class Product extends Model
         'product_type',
         'brand',
         'xero_item_id',
-        'qb_item_id'
+        'qb_item_id',
+        'image_3d'
     ];
 
     public function category()

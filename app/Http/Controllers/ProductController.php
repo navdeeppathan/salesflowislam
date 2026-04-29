@@ -52,6 +52,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'product_type' => 'nullable|string',
             'brand' => 'nullable|string',
+            'image_3d' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
 
         ]);
 
@@ -69,6 +70,7 @@ class ProductController extends Controller
             'quantity',
             'product_type',
             'brand',
+            
         ]);
 
         // IMAGE UPLOAD
@@ -77,6 +79,13 @@ class ProductController extends Controller
             $name = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $name);
             $data['image'] = 'uploads/' . $name;;
+        }
+
+        if ($request->hasFile('image_3d')) {
+            $file = $request->file('image_3d');
+            $name = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $name);
+            $data['image_3d'] = 'uploads/' . $name;;
         }
 
         // Product::create($data);
@@ -146,6 +155,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'product_type' => 'nullable|string',
             'brand' => 'nullable|string',
+            'image_3d' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->only([
@@ -170,6 +180,13 @@ class ProductController extends Controller
             $name = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $name);
             $data['image'] = 'uploads/' . $name;
+        }
+
+        if ($request->hasFile('image_3d')) {
+            $file = $request->file('image_3d');
+            $name = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $name);
+            $data['image_3d'] = 'uploads/' . $name;
         }
 
         $product->update($data);

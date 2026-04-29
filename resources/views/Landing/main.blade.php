@@ -887,6 +887,11 @@
                                     <span
                                         class="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">POPULAR</span>
                                 </div>
+
+                                <div class="absolute top-4 right-4 z-10">
+                                    <a href="{{ route('3dview.index', $product) }}"
+                                        class="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">3d View</a>
+                                </div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity">
                                 </div>

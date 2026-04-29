@@ -713,6 +713,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="my-3">
+                                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Product 3D Image</p>
+                                
+                                <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-3xl">
+                                    <img src="{{asset($product->image_3d ?? $product->image)}}" alt="" class="w-12 h-12 object-contain">
+                                </div>
+                            </div>
 
                             <!-- LOCATION -->
                             <div class="space-y-3">
@@ -1160,6 +1167,11 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Image</label>
                             <input type="file" name="image" class="w-full">
                         </div>
+                        
+                    </div>
+                    <div class="my-4">
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2">3D Image(Transparent Background/Optional)</label>
+                        <input type="file" name="image_3d" class="w-full">
                     </div>
 
                     <div>
@@ -1266,6 +1278,10 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Image</label>
                             <input type="file" name="image"  class="w-full">
                         </div>
+                    </div>
+                    <div class="my-4">
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2">3D Image(Transparent Background/Optional)</label>
+                        <input type="file" name="image_3d" class="w-full">
                     </div>
 
                     <div>
