@@ -462,7 +462,7 @@
                     <p class="text-sm text-slate-500">Track your sales KPIs and metrics</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
+            {{-- <div class="flex items-center gap-3">
                 <select class="px-4 py-2 border border-slate-200 rounded-lg text-sm">
                     <option>April 2026</option>
                     <option>March 2026</option>
@@ -474,7 +474,7 @@
                     <span
                         class="absolute top-0 right-0 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">8</span>
                 </button>
-            </div>
+            </div> --}}
         </div>
     </header>
 

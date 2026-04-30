@@ -534,6 +534,12 @@
                             Follow-ups
                         </a>
 
+                        <a href="?type=completed"
+                            class="flex-1 py-2 px-4 rounded-lg text-sm font-medium 
+                            {{ request('type') == 'completed' ? 'bg-green-600 text-white' : 'text-slate-600 hover:bg-slate-50' }}">
+                            Closed
+                        </a>
+
                     </div>
 
                     <!-- High Priority Tasks -->
@@ -567,6 +573,19 @@
 
                                     <span class="priority-badge priority-high">
                                         <i class="fas fa-flag"></i> High
+                                       
+                                        <div class="flex flex-col gap-2 justify-end mt-2">
+                                            <button 
+                                                onclick="openActivityModal({{ $task->task_id }}); event.stopPropagation();" 
+                                                class="text-xs bg-blue-900 text-white px-3 py-1 rounded">
+                                                Activity
+                                            </button>
+                                            <button 
+                                                onclick="closeTask({{ $task->task_id }}); event.stopPropagation();" 
+                                                class="text-xs bg-green-600 text-white px-3 py-1 rounded ml-2">
+                                                Close
+                                            </button>
+                                        </div>
                                     </span>
                                 </div>
 
@@ -592,6 +611,10 @@
                                     <span class="flex items-center gap-1 text-red-600">
                                         <i class="fas fa-clock"></i>
                                         {{ \Carbon\Carbon::parse($task->due_date)->format('d M, h:i A') }}
+                                    </span>
+
+                                    <span class="flex items-center gap-1">
+                                         <i class="fas fa-circle"></i> {{$task->status}}
                                     </span>
 
                                 </div>
@@ -633,7 +656,20 @@
                                     </div>
 
                                     <span class="priority-badge priority-high">
-                                        <i class="fas fa-flag"></i> High
+                                        <i class="fas fa-flag"></i> Medium
+                                        <div class="flex flex-col gap-2 justify-end mt-2">
+                                            <button 
+                                                onclick="openActivityModal({{ $task->task_id }}); event.stopPropagation();" 
+                                                class="text-xs bg-blue-900 text-white px-3 py-1 rounded">
+                                                Activity
+                                            </button>
+                                            <button 
+                                                onclick="closeTask({{ $task->task_id }}); event.stopPropagation();" 
+                                                class="text-xs bg-green-600 text-white px-3 py-1 rounded ml-2">
+                                                Close
+                                            </button>
+                                        </div>
+                                        
                                     </span>
                                 </div>
 
@@ -700,7 +736,19 @@
                                     </div>
 
                                     <span class="priority-badge priority-high">
-                                        <i class="fas fa-flag"></i> High
+                                        <i class="fas fa-flag"></i> Low
+                                        <div class="flex flex-col gap-2 justify-end mt-2">
+                                            <button 
+                                                onclick="openActivityModal({{ $task->task_id }}); event.stopPropagation();" 
+                                                class="text-xs bg-blue-900 text-white px-3 py-1 rounded">
+                                                Activity
+                                            </button>
+                                            <button 
+                                                onclick="closeTask({{ $task->task_id }}); event.stopPropagation();" 
+                                                class="text-xs bg-green-600 text-white px-3 py-1 rounded ml-2">
+                                                Close
+                                            </button>
+                                        </div>
                                     </span>
                                 </div>
 
@@ -733,6 +781,64 @@
 
                             @empty
                                 <p class="text-sm text-slate-400">No tasks</p>
+                            @endforelse
+                        </div>
+                    </div>
+
+                    <!-- Completed Tasks -->
+                    <div>
+                        <h3 class="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                            Closed Tasks
+                        </h3>
+
+                        <div class="space-y-3">
+                            @forelse($tasks->where('status','completed') as $task)
+
+                            <div class="task-card opacity-70" onclick="viewTask({{ $task->task_id }})">
+                                <div class="flex items-start justify-between mb-2">
+
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" checked disabled
+                                            class="w-5 h-5 rounded border-slate-300 text-green-600">
+
+                                        <div>
+                                            <h4 class="font-semibold text-slate-900 line-through">
+                                                {{ $task->title }}
+                                            </h4>
+
+                                            <p class="text-sm text-slate-500">
+                                                {{ $task->description }}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <span class="text-xs bg-green-600 text-white px-3 py-1 rounded">
+                                        Completed
+                                    </span>
+                                </div>
+
+                                <div class="flex items-center gap-4 text-sm text-slate-500 ml-8">
+
+                                    <span class="flex items-center gap-1">
+                                        <i class="fas fa-check-circle text-green-600"></i> Done
+                                    </span>
+
+                                    <span class="flex items-center gap-1">
+                                        <i class="fas fa-building text-slate-400"></i>
+                                        {{ $task->customer_name }}
+                                    </span>
+
+                                    <span class="flex items-center gap-1">
+                                        <i class="fas fa-clock"></i>
+                                        {{ \Carbon\Carbon::parse($task->due_date)->format('d M, h:i A') }}
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            @empty
+                                <p class="text-sm text-slate-400">No completed tasks</p>
                             @endforelse
                         </div>
                     </div>
@@ -904,6 +1010,30 @@
         </form>
     </div>
 </div>
+
+
+<div id="activityModal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+    <div class="bg-white w-full max-w-lg rounded-lg shadow-lg p-5">
+
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold">Task Activity</h2>
+            <button onclick="closeActivityModal()">✕</button>
+        </div>
+
+        <!-- Activity List -->
+        <div id="activityList" class="max-h-60 overflow-y-auto space-y-2 mb-4"></div>
+
+        <!-- Add Activity -->
+        <textarea id="activityMessage" class="w-full border rounded p-2 text-sm"
+            placeholder="Write activity..."></textarea>
+
+        <button onclick="saveActivity()" 
+            class="mt-3 bg-blue-900 text-white px-4 py-2 rounded w-full">
+            Add Activity
+        </button>
+
+    </div>
+</div>
     
 
     <script>
@@ -1017,6 +1147,93 @@
             if (confirm('Are you sure you want to logout?')) {
                 window.location.href = 'index.html';
             }
+        }
+    </script>
+
+    <script>
+        let currentTaskId = null;
+
+        function openActivityModal(taskId) {
+            currentTaskId = taskId;
+            document.getElementById('activityModal').classList.remove('hidden');
+            document.getElementById('activityModal').classList.add('flex');
+
+            fetchActivities(taskId);
+        }
+
+        function closeActivityModal() {
+            document.getElementById('activityModal').classList.add('hidden');
+        }
+
+        function fetchActivities(taskId) {
+            fetch(`/tasks/${taskId}/activities`)
+                .then(res => res.json())
+                .then(data => {
+                    let html = '';
+
+                    data.forEach(act => {
+                        // 👉 Format date
+                        const date = new Date(act.created_at);
+                        const formattedDate = date.toLocaleString('en-IN', {
+                            day: '2-digit',
+                            month: 'short',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                        });
+                        html += `
+                            <div class="border p-2 rounded text-sm">
+                                <p>${act.message}</p>
+                                <span class="text-xs text-gray-400">${formattedDate}</span>
+                            </div>
+                        `;
+                    });
+
+                    document.getElementById('activityList').innerHTML = html;
+                });
+        }
+
+        function saveActivity() {
+            const message = document.getElementById('activityMessage').value;
+
+            if (!message) return alert('Enter message');
+
+            fetch(`/tasks/${currentTaskId}/activities`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ message })
+            })
+            .then(res => res.json())
+            .then(() => {
+                document.getElementById('activityMessage').value = '';
+                fetchActivities(currentTaskId);
+            });
+        }
+    </script>
+
+    <script>
+        function closeTask(taskId) {
+            if (!confirm('Mark this task as completed?')) return;
+
+            fetch(`/tasks/${taskId}/update`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    status: 'completed'
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload(); // refresh UI
+                }
+            });
         }
     </script>
 

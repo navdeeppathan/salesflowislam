@@ -798,12 +798,25 @@
                                                 {{ $location->quantity }} units
                                             </p>
 
-                                            @if($location->quantity < 50)
+                                            {{-- @if($location->quantity < 50)
                                                 <span class="expiry-badge expiry-critical">Low Stock</span>
                                             @elseif($location->quantity < 100)
                                                 <span class="expiry-badge expiry-warning">Medium</span>
                                             @else
                                                 <span class="expiry-badge expiry-good">Good</span>
+                                            @endif --}}
+
+                                            @if($location->quantity == 0)
+                                                <span class="expiry-badge expiry-critical">Out of Stock</span>
+
+                                            @elseif($location->quantity <= $product->min_stock)
+                                                <span class="expiry-badge expiry-critical">Low Stock</span>
+
+                                            @elseif($location->quantity >= $product->min_stock)
+                                                <span class="expiry-badge expiry-critical">Full</span>
+
+                                            @else
+                                                <span class="expiry-badge expiry-critical">In Stock</span>
                                             @endif
 
                                             <!-- EXPIRY STATUS -->
@@ -859,7 +872,7 @@
                             </div> --}}
 
                             <!-- ALERT -->
-                            @if($product->quantity < 50)
+                            @if($product->locations->sum('quantity') < $product->min_stock)
                             <div class="p-4 bg-red-50 border border-red-200 rounded-xl">
                                 <p class="text-xs font-bold text-red-600 uppercase mb-1">Stock Alert</p>
                                 <p class="text-sm text-slate-900 font-medium">
@@ -900,6 +913,7 @@
                                     data-description="{{ $product->description }}"
                                     data-brand="{{ $product->brand }}"
                                     data-product_type="{{ $product->product_type }}"
+                                    data-min_stock="{{ $product->min_stock }}"
 
                                     class="w-full py-2 bg-slate-200 text-slate-700 rounded-lg text-sm font-semibold">
                                         Edit Product
@@ -1131,6 +1145,11 @@
                     <input type="text" name="brand" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-blue-500 focus:outline-none" placeholder="e.g., Nestle">
                 </div>
 
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Min Stock</label>
+                    <input type="number" name="min_stock" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-blue-500 focus:outline-none" placeholder="e.g., 10">
+                </div>
+
                 <div class="border-t border-slate-200 pt-6">
                     {{-- <h3 class="text-sm font-bold text-slate-900 mb-4">Primary Location</h3>
                     <div class="grid md:grid-cols-4 gap-4">
@@ -1240,6 +1259,10 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Product Brand</label>
                     <input type="text" name="brand"  id="edit_brand" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-blue-500 focus:outline-none" placeholder="e.g., Nestle">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Min Stock</label>
+                    <input type="number" name="min_stock" id="edit_min_stock" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-blue-500 focus:outline-none" placeholder="e.g., 10">
                 </div>
 
                 <div class="border-t border-slate-200 pt-6">
@@ -1607,6 +1630,8 @@
             document.getElementById('edit_description').value = btn.dataset.description || '';
             document.getElementById('edit_type').value = btn.dataset.product_type || '';
             document.getElementById('edit_brand').value = btn.dataset.brand || '';
+            document.getElementById('edit_min_stock').value = btn.dataset.min_stock || '';
+
         }
     </script>
 

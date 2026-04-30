@@ -88,6 +88,13 @@ use App\Models\OrderLog;
 use App\Models\Cart;
 use App\Models\OrderReturn;
 
+use App\Http\Controllers\TaskActivityController;
+
+
+Route::get('/tasks/{task}/activities', [TaskActivityController::class, 'index']);
+Route::post('/tasks/{task}/activities', [TaskActivityController::class, 'store']);
+Route::post('/tasks/{id}/update', [TaskController::class, 'update']);
+
 Route::post('/locations/store', [LocationController::class, 'store'])
     ->name('locations.store');
 
@@ -709,7 +716,7 @@ Route::post('/order/update-status', function (Request $req) {
 
     // LOG ENTRY
     OrderLog::create([
-        'order_id' => $order->id,
+        'order_id' => $order2 ? $order2->id : $order->id,
         'user_id' => auth()->id(),
         'action_type' => 'status_update',
         'old_value' => $oldStatus,

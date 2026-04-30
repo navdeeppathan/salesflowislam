@@ -13,8 +13,11 @@ class TaskController extends Controller
 
         $query = Task::query();
 
-        if ($type && $type != 'all') {
+        if ($type == 'completed') {
+            $query->where('status', 'completed');
+        } elseif ($type && $type != 'all') {
             $query->where('task_type', $type);
+            $query->where('status', '!=', 'completed');
         }
 
         $tasks = $query->orderBy('due_date')->get();
@@ -35,5 +38,19 @@ class TaskController extends Controller
         ]);
 
         return back()->with('success', 'Task Created');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $task = Task::findOrFail($id);
+
+        $task->update([
+            'status' => $request->status
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Task updated successfully'
+        ]);
     }
 }

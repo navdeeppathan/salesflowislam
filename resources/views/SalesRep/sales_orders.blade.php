@@ -627,8 +627,6 @@
                             <div>Amount</div>
                             <div>Status</div>
                             <div>Payment/Method</div>
-                            
-
                             <div>Action</div>
                         </div>
 
@@ -666,7 +664,31 @@
                             </div>
 
                             <div>
-                                <span class="status-badge status-{{ $order->status }}">
+                                <span class="status-badge status-{{ str_replace(' ', '-', $order->status) }}">
+
+                                    @if($order->status == 'created')
+                                        <i class="fas fa-plus-circle"></i>
+
+                                    @elseif($order->status == 'draft')
+                                        <i class="fas fa-edit"></i>
+
+                                    @elseif($order->status == 'accepted')
+                                        <i class="fas fa-check-circle"></i>
+
+                                    @elseif($order->status == 'ready for delivery')
+                                        <i class="fas fa-box"></i>
+
+                                    @elseif($order->status == 'out for delivery')
+                                        <i class="fas fa-truck"></i>
+
+                                    @elseif($order->status == 'delivered')
+                                        <i class="fas fa-check-double"></i>
+
+                                    @elseif($order->status == 'cancel')
+                                        <i class="fas fa-times-circle"></i>
+
+                                    @endif
+
                                     {{ ucfirst($order->status) }}
                                 </span>
                             </div>
@@ -679,13 +701,13 @@
 
                             
 
-                            <div class="flex gap-2">
+                            <div class="flex gap-4">
                                 <button class="text-blue-900 hover:underline text-sm">
-                                    <a href="/checkout-sales/{{ $order->id }}">View</a>
+                                    <a href="/checkout-sales/{{ $order->id }}"><i class="fas fa-eye"></i></a>
                                 </button>
                                 <button onclick="openLogs({{ $order->id }})"
                                     class="text-purple-700 hover:underline text-sm">
-                                    History
+                                    <i class="fas fa-history"></i>
                                 </button>
                                 
                                
@@ -695,7 +717,7 @@
                                     {{ $order->payment_status == 'full' ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 text-white' }}"
                                     {{ $order->payment_status == 'full' ? 'disabled' : '' }}>
                                     
-                                    {{ $order->payment_status == 'full' ? 'Paid' : 'Make Payment' }}
+                                    {{ $order->payment_status == 'full' ? 'Paid' : 'Pay' }}
                                 </button>
                                 
                             </div>

@@ -53,6 +53,7 @@ class ProductController extends Controller
             'product_type' => 'nullable|string',
             'brand' => 'nullable|string',
             'image_3d' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'min_stock' => 'nullable|integer|min:0',
 
         ]);
 
@@ -70,6 +71,7 @@ class ProductController extends Controller
             'quantity',
             'product_type',
             'brand',
+            'min_stock',
             
         ]);
 
@@ -156,6 +158,7 @@ class ProductController extends Controller
             'product_type' => 'nullable|string',
             'brand' => 'nullable|string',
             'image_3d' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'min_stock' => 'nullable|integer|min:0',
         ]);
 
         $data = $request->only([
@@ -172,6 +175,7 @@ class ProductController extends Controller
             'quantity',
             'product_type',
             'brand',
+            'min_stock',
         ]);
 
         // IMAGE UPDATE
