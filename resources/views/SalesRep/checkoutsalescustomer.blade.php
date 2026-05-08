@@ -179,19 +179,20 @@
                     <span class="text-slate-300">|</span>
                     <span class="text-lg font-semibold text-slate-800">Create Sales Order</span>
                     <div class="hidden lg:flex items-center gap-8">
-                        <a href="/main" class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Home</a>
-                    <a href="#products"
-                        class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Products</a>
-                    <a href="#brands"
-                        class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Brands</a>
-                    <a href="#services"
-                        class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Services</a>
-                    <a href="/checkout"
-                        class="text-sm font-medium text-blue-900 hover:text-blue-700 transition flex items-center gap-2">
-                        <i class="fas fa-clipboard-list"></i>
-                        Sales Order
-                    </a>
-                </div>
+                        <a href="/main"
+                            class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Home</a>
+                        <a href="#products"
+                            class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Products</a>
+                        <a href="#brands"
+                            class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Brands</a>
+                        <a href="#services"
+                            class="text-sm font-medium text-slate-600 hover:text-blue-900 transition">Services</a>
+                        <a href="/checkout"
+                            class="text-sm font-medium text-blue-900 hover:text-blue-700 transition flex items-center gap-2">
+                            <i class="fas fa-clipboard-list"></i>
+                            Sales Order
+                        </a>
+                    </div>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -334,6 +335,15 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <p class="text-sm font-medium text-slate-700 mb-3">
+                            Quick Add (Category Based):
+                        </p>
+
+                        <div id="quick-add-container" class="flex flex-wrap gap-2">
+                            <!-- Dynamic buttons yaha aayenge -->
+                        </div>
+                    </div>
 
 
                 </div>
@@ -443,8 +453,8 @@
 
                             $available = max($creditLimit - $totalUsed, 0);
 
-                            $percentage = $creditLimit > 0 
-                                ? min(($totalUsed / $creditLimit) * 100, 100) 
+                            $percentage = $creditLimit > 0
+                                ? min(($totalUsed / $creditLimit) * 100, 100)
                                 : 0;
                         @endphp
                         <!-- Credit Limit Info -->
@@ -468,8 +478,7 @@
 
                             <!-- Progress Bar -->
                             <div class="w-full bg-slate-200 rounded-full h-2 mt-2">
-                                <div 
-                                    class="h-2 rounded-full transition-all
+                                <div class="h-2 rounded-full transition-all
                                     {{ $percentage > 80 ? 'bg-red-500' : ($percentage > 50 ? 'bg-yellow-500' : 'bg-green-500') }}"
                                     style="width: {{ $percentage }}%">
                                 </div>
@@ -581,15 +590,50 @@
                 </tr>
         
     `).join('');
+            if (orderLines.length > 0 && orderLines[0].category_id) {
+
+                lastCategoryId = orderLines[orderLines.length - 1].category_id;
+
+                loadQuickAddProducts(lastCategoryId);
+            }
 
             document.getElementById('line-count').innerText = orderLines.length + " items";
         }
 
 
+        function loadQuickAddProducts(categoryId) {
+            // 🔥 THIS LINE MISSING
+            const cartProductIds = orderLines.map(item => item.product_id);
+            const params = new URLSearchParams();
+
+            cartProductIds.forEach(id => {
+                params.append('exclude[]', id);
+            });
+
+            fetch(`/products/by-category/${categoryId}?${params.toString()}`)
+                .then(res => res.json())
+                .then(products => {
+
+                    const container = document.getElementById('quick-add-container');
+
+                    if (products.length === 0) {
+                        container.innerHTML = `<p class="text-sm text-gray-400">All products already added ✅</p>`;
+                        return;
+                    }
+
+                    container.innerHTML = products.map(p => `
+                <button onclick="quickAdd(${p.id})"
+                    class="px-3 py-2 bg-slate-100 hover:bg-blue-100 rounded-lg text-sm">
+                    + ${p.title}
+                </button>
+            `).join('');
+                });
+        }
+
         function updateQty(index, change) {
 
             let item = orderLines[index];
-              // 🔥 FORCE NUMBER (THIS IS THE FIX)
+            // 🔥 FORCE NUMBER (THIS IS THE FIX)
             item.qty = Number(item.qty);
 
             if (change < 0 && item.qty <= 5) {
@@ -655,7 +699,7 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 body: JSON.stringify({
-                    cart_id: item.id ,
+                    cart_id: item.id,
                     user_id: {{ $user->id }} // 👈 IMPORTANT (cart table id)
                 })
             })
@@ -911,7 +955,7 @@
                 body: JSON.stringify({
                     product_id: productId,
                     quantity: 5,// default MOQ
-                    user_id :{{ $user->id }}
+                    user_id:{{ $user->id }}
                 })
             })
                 .then(res => res.json())

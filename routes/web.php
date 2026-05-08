@@ -416,12 +416,15 @@ Route::middleware(['auth', 'role:sale_rep'])->group(function () {
         $cartData = $cartItems->map(function ($item) {
             return [
                 'id' => $item->id,
+                'product_id' => $item->product->id, // 🔥 MUST
                 'name' => $item->product->title,
                 'sku' => $item->product->sku_code,
                 'price' => $item->product->price,
                 'moq' => 1,
                 'qty' => max(5, $item->quantity),
-                'lineTotal' => $item->product->price * max(5, $item->quantity)
+                'lineTotal' => $item->product->price * max(5, $item->quantity),
+                 // 🔥 ADD THIS LINE (MAIN FIX)
+                'category_id' => $item->product->category_id
             ];
         });
 
