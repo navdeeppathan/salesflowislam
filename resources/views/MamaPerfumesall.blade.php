@@ -683,34 +683,13 @@
       visibility: visible;
       transform: translateY(0);
   }
-
-  .view-all-btn{
-  background:#000;
-  color:#fff;
-  padding:10px 20px;
-  text-decoration:none;
-  border:none;
-  border-radius:0;
-  font-size:14px;
-  font-weight:600;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-align: center;
-  transition:0.3s ease;
-}
-
-.view-all-btn:hover{
-  background:#222;
-  color:#fff;
-}
 </style>
 </head>
 <body>
 <div id="c1"></div><div id="c2"></div>
 
 <!-- TICKER -->
-<div class="ticker">
+{{-- <div class="ticker">
   <div class="ticker-inner" id="tick">
     <span class="ti"><span class="dot"></span>Dubai · United Arab Emirates</span>
     <span class="ti"><span class="dot"></span>Luxury Arabian Fragrances</span>
@@ -727,7 +706,7 @@
     <span class="ti"><span class="dot"></span>Private Label Available</span>
     <span class="ti"><span class="dot"></span>WhatsApp +971 50 000 0000</span>
   </div>
-</div>
+</div> --}}
 
 <!-- NAV -->
 <nav id="nav">
@@ -821,7 +800,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
+{{-- <section class="hero" id="home">
   <!-- Left: Full image -->
   <div class="hero-img">
     <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=1200&q=85&fit=crop" alt="Luxury perfume bottles Dubai" loading="eager">
@@ -863,7 +842,7 @@
       <div class="hstat"><div class="hstat-val">0%</div><div class="hstat-lbl">Alcohol</div></div>
     </div>
   </div>
-</section>
+</section> --}}
 
 <!-- MARQUEE -->
 {{-- <div class="mband">
@@ -884,7 +863,7 @@
     <span class="mitem"><span class="mdot"></span>Dubai Sourced · Pure Oil · Halal</span>
   </div>
 </div> --}}
-<div class="mband">
+{{-- <div class="mband">
     <div class="mband-inner" id="mband">
 
         @foreach($products as $product)
@@ -900,7 +879,7 @@
         @endforeach
 
     </div>
-</div>
+</div> --}}
 
 {{-- <!-- FEATURE STRIP -->
 <div class="feat-strip">
@@ -930,7 +909,7 @@
   </div>
 </div> --}}
 <!-- FEATURE STRIP -->
-<div class="feat-strip">
+{{-- <div class="feat-strip">
 
     @foreach($products->take(3) as $product)
 
@@ -963,7 +942,7 @@
 
     @endforeach
 
-</div>
+</div> --}}
 
 <!-- PRODUCTS -->
 <section class="prod-sec sec" id="products">
@@ -987,12 +966,6 @@
     <button class="flt" onclick="filterP(this,'attar')">Attar Oils</button>
   </div>
   <div class="pgrid" id="pgrid"></div>
-  <div class="flex items-center justify-center mt-4">
-    <a href="/all-products" class="view-all-btn">
-      View All
-    </a>
-  </div>
-
 </section>
 
 <!-- SPLIT — STORY -->

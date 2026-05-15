@@ -110,12 +110,27 @@ Route::get('/', function () {
 
 
     $categories = Category::all();
-    $products = Product::with(['category','locations'])->get(); // 👈 important
+    $products = Product::with(['category','locations'])->limit(25)->get(); // 👈 important
     $brands = Product::whereNotNull('brand')
         ->where('brand', '!=', '')
         ->distinct()
         ->pluck('brand');
     return view('MamaPerfumes', compact('categories', 'products', 'brands'));
+});
+
+Route::get('/all-products', function () {
+    // if (auth()->check()) {
+    //     return redirect('/main'); // ✅ LOGIN HAI → MAIN
+    // }
+
+
+    $categories = Category::all();
+    $products = Product::with(['category','locations'])->limit(25)->get(); // 👈 important
+    $brands = Product::whereNotNull('brand')
+        ->where('brand', '!=', '')
+        ->distinct()
+        ->pluck('brand');
+    return view('MamaPerfumesall', compact('categories', 'products', 'brands'));
 });
 
 Route::post('/products/import', [ProductController::class, 'import'])
