@@ -788,7 +788,7 @@
     @else
         <!-- Login/Register Button -->
         <button onclick="openModal('login')"
-            class="px-5 py-2.5 text-sm font-medium bg-blue-900 text-white rounded-full hover:bg-blue-800 transition shadow-lg">
+            class="px-5 py-2.5 text-sm font-medium bg-black text-white rounded-full hover:bg-blue-800 transition shadow-lg">
             Login / Registration
         </button>
     @endif
@@ -799,150 +799,7 @@
   </div>
 </nav>
 
-<!-- HERO -->
-{{-- <section class="hero" id="home">
-  <!-- Left: Full image -->
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=1200&q=85&fit=crop" alt="Luxury perfume bottles Dubai" loading="eager">
-    <div class="hero-img-overlay"></div>
-    <div class="hero-img-fade"></div>
-    <!-- Floating chips -->
-    <div class="hero-float hf1">
-      <div class="fdot" style="background:#e8c868;"></div>
-      <span class="ftxt">Halal Certified</span>
-    </div>
-    <div class="hero-float hf2">
-      <div class="fdot" style="background:#4ab898;"></div>
-      <span class="ftxt">Sourced in Dubai</span>
-    </div>
-  </div>
-  <!-- Right: Copy -->
-  <div class="hero-copy">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Dubai · Middle East · Worldwide</span>
-    </div>
-    <div class="hero-arabic">عطور العود</div>
-    <h1 class="hero-h1">Arabian<br><em>Luxury</em><br>Fragrances</h1>
-    <div class="hero-rule"></div>
-    <p class="hero-desc">Pure oud, musk, amber and rose — sourced from the finest origins across Arabia, India and the Far East. Shipped wholesale from Dubai.</p>
-    <div class="hero-btns">
-      <a href="#products" class="btn-primary">
-        Explore Collection
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="https://wa.me/971500000000" target="_blank" class="btn-secondary">
-        WhatsApp Enquiry
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="hstat"><div class="hstat-val">50+</div><div class="hstat-lbl">Fragrances</div></div>
-      <div class="hstat"><div class="hstat-val">MOQ12</div><div class="hstat-lbl">Per line</div></div>
-      <div class="hstat"><div class="hstat-val">UAE</div><div class="hstat-lbl">Based</div></div>
-      <div class="hstat"><div class="hstat-val">0%</div><div class="hstat-lbl">Alcohol</div></div>
-    </div>
-  </div>
-</section> --}}
 
-<!-- MARQUEE -->
-{{-- <div class="mband">
-  <div class="mband-inner" id="mband">
-    <span class="mitem"><span class="mdot"></span>Pure Oud Al Hindi</span>
-    <span class="mitem"><span class="mdot"></span>White Musk — Misk Al Abiyad</span>
-    <span class="mitem"><span class="mdot"></span>Amber Resin — Anbar</span>
-    <span class="mitem"><span class="mdot"></span>Rose of Taif</span>
-    <span class="mitem"><span class="mdot"></span>Cambodian Oud</span>
-    <span class="mitem"><span class="mdot"></span>Saffron & Oud Blend</span>
-    <span class="mitem"><span class="mdot"></span>Dubai Sourced · Pure Oil · Halal</span>
-    <span class="mitem"><span class="mdot"></span>Pure Oud Al Hindi</span>
-    <span class="mitem"><span class="mdot"></span>White Musk — Misk Al Abiyad</span>
-    <span class="mitem"><span class="mdot"></span>Amber Resin — Anbar</span>
-    <span class="mitem"><span class="mdot"></span>Rose of Taif</span>
-    <span class="mitem"><span class="mdot"></span>Cambodian Oud</span>
-    <span class="mitem"><span class="mdot"></span>Saffron & Oud Blend</span>
-    <span class="mitem"><span class="mdot"></span>Dubai Sourced · Pure Oil · Halal</span>
-  </div>
-</div> --}}
-{{-- <div class="mband">
-    <div class="mband-inner" id="mband">
-
-        @foreach($products as $product)
-
-            <span class="mitem">
-
-                <span class="mdot"></span>
-
-                {{ $product->title }}
-
-            </span>
-
-        @endforeach
-
-    </div>
-</div> --}}
-
-{{-- <!-- FEATURE STRIP -->
-<div class="feat-strip">
-  <div class="feat-cell">
-    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=600&q=85&fit=crop" alt="Luxury oud perfume">
-    <div class="feat-cell-overlay"></div>
-    <div class="feat-cell-label">
-      <div class="fcl-sub">Signature Range</div>
-      <div class="fcl-name">Pure Oud<br>Collection</div>
-    </div>
-  </div>
-  <div class="feat-cell">
-    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=600&q=85&fit=crop" alt="Musk perfume">
-    <div class="feat-cell-overlay"></div>
-    <div class="feat-cell-label">
-      <div class="fcl-sub">Bestseller</div>
-      <div class="fcl-name">White Musk<br>Series</div>
-    </div>
-  </div>
-  <div class="feat-cell">
-    <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=600&q=85&fit=crop" alt="Rose amber perfume">
-    <div class="feat-cell-overlay"></div>
-    <div class="feat-cell-label">
-      <div class="fcl-sub">Luxury Blend</div>
-      <div class="fcl-name">Rose &<br>Amber</div>
-    </div>
-  </div>
-</div> --}}
-<!-- FEATURE STRIP -->
-{{-- <div class="feat-strip">
-
-    @foreach($products->take(3) as $product)
-
-        <div class="feat-cell">
-
-            <img 
-                src="{{ $product->image }}" 
-                alt="{{ $product->title }}"
-            >
-
-            <div class="feat-cell-overlay"></div>
-
-            <div class="feat-cell-label">
-
-                <div class="fcl-sub">
-
-                    {{ $product->category->name ?? 'Luxury Fragrance' }}
-
-                </div>
-
-                <div class="fcl-name">
-
-                    {{ $product->title }}
-
-                </div>
-
-            </div>
-
-        </div>
-
-    @endforeach
-
-</div> --}}
 
 <!-- PRODUCTS -->
 <section class="prod-sec sec" id="products">
@@ -1206,178 +1063,279 @@
 
 <!-- MODAL -->
     <div id="modal-overlay"
-        class="fixed inset-0 bg-black/50 backdrop-blur z-50 opacity-0 pointer-events-none transition-opacity"
-        onclick="closeModal()"></div>
-    <div id="modal"
-        class="fixed inset-0 z-[9999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity  ">
-        <div class="bg-white rounded-3xl max-w-md w-full p-8 transform scale-95 transition-transform overflow-y-auto h-[98vh]"
-            id="modal-content">
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    onclick="closeModal()"></div>
 
-            <!-- Tab Navigation -->
-            <div class="flex mb-6 bg-slate-100 rounded-xl p-1">
+<div id="modal"
+    class="fixed inset-0 z-[9999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+
+    <div id="modal-content"
+        class="relative w-full max-w-md h-[96vh] overflow-y-auto border shadow-2xl transform scale-95 transition-transform"
+        style="
+            background: var(--white);
+            border-color: var(--border);
+            border-radius: var(--r3);
+            box-shadow: 0 30px 80px rgba(0,0,0,.18);
+        ">
+
+        <!-- GOLD TOP BORDER -->
+        <div class="absolute top-0 left-0 right-0 h-[2px]"
+            style="background: linear-gradient(90deg,var(--gold),var(--gold3),var(--gold));"></div>
+
+        <!-- CLOSE -->
+        <div class="absolute top-5 right-5 z-20">
+            <button onclick="closeModal()"
+                class="w-10 h-10 flex items-center justify-center transition"
+                style="
+                    background: var(--bg);
+                    border:1px solid var(--ghost);
+                    color:var(--muted);
+                    border-radius:50%;
+                ">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- TAB NAV -->
+        <div class="p-6 pb-0">
+            <div class="flex p-1"
+                style="
+                    background: var(--ghost);
+                    border-radius: var(--r2);
+                ">
+
                 <button onclick="switchTab('login')" id="tab-login"
-                    class="flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300"
+                    style="
+                        border-radius: var(--r);
+                        color: var(--muted);
+                    ">
                     Trade Login
                 </button>
+
                 <button onclick="switchTab('register')" id="tab-register"
-                    class="flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all duration-300 bg-white text-blue-900 shadow-sm">
+                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 shadow-sm"
+                    style="
+                        background: var(--white);
+                        color: var(--ink);
+                        border-radius: var(--r);
+                        border:1px solid var(--border);
+                    ">
                     Open Account
                 </button>
             </div>
-
-            <!-- Close Button -->
-            <div class="absolute top-6 right-6">
-                <button onclick="closeModal()"
-                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition">
-                    <i class="fas fa-times text-slate-600"></i>
-                </button>
-            </div>
-
-            <!-- Login Form -->
-            <div id="form-login" class="hidden">
-                <div class="text-center mb-6">
-                    <h3 class="font-display text-2xl font-bold text-slate-900 mb-2">Welcome Back</h3>
-                    <p class="text-sm text-slate-500">Sign in to access your trade account and pricing</p>
-                </div>
-                {{-- <form onsubmit="event.preventDefault(); handleLogin();"> --}}
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Business Email</label>
-                                <input type="email" name="email" id="login-email"
-                                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                    placeholder="your@business.com" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Password</label>
-                                <div class="relative">
-                                    <input type="password" name='password' id="login-password"
-                                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                        placeholder="••••••••" required>
-                                    <button type="button" onclick="togglePassword('login-password')"
-                                        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between text-sm">
-                                <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-4 h-4 rounded border-slate-300 text-blue-900 focus:ring-blue-900">
-                                    <span class="text-slate-600">Remember me</span>
-                                </label>
-                                <a href="#" onclick="showForgotPassword()"
-                                    class="text-blue-900 font-medium hover:underline">Forgot password?</a>
-                            </div>
-                            <button type="submit"
-                                class="w-full py-4 bg-blue-900 text-white rounded-xl font-bold hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">
-                                Sign In
-                            </button>
-                            {{-- onclick="window.location.href='main.html'" --}}
-                        </div>
-                    </form>
-                    <div class="mt-6 pt-6 border-t border-slate-200 text-center">
-                        <p class="text-sm text-slate-500 mb-3">Don't have a trade account?</p>
-                        <button onclick="switchTab('register')" class="text-blue-900 font-medium hover:underline">
-                            Register your business <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
-            </div>
-
-            <!-- Register Form (Original) -->
-            <div id="form-register">
-                <div class="text-center mb-6">
-                    <h3 class="font-display text-2xl font-bold text-slate-900 mb-2">Open Trade Account</h3>
-                </div>
-                <form action="{{ route('register-customer') }}" method="POST">
-                    @csrf
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-2">Business Name</label>
-                            <input type="text" name="business_name"
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                placeholder="Your Business Ltd" required>
-                        </div>
-                        <div class="grid grid-cols-1 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
-                                <input type="text" name="name"
-                                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                    placeholder="John Smith" required>
-                            </div>
-                            {{-- <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
-                                <input type="text" id="reg-lastname"
-                                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                    placeholder="Smith" required>
-                            </div> --}}
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-2">Business Email</label>
-                            <input type="email" name="email"
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                placeholder="john@yourbusiness.com" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-2">Phone</label>
-                            <input type="tel" name="phone"
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                placeholder="020 7946 0958" required>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="reg-terms"
-                                class="w-4 h-4 mt-1 rounded border-slate-300 text-blue-900 focus:ring-blue-900"
-                                required>
-                            <label for="reg-terms" class="text-sm text-slate-600">
-                                I agree to the <a href="#" class="text-blue-900 font-medium hover:underline">Terms of
-                                    Trade</a> and confirm this is a legitimate business enquiry
-                            </label>
-                        </div>
-                        <button type="submit"
-                            class="w-full py-4 bg-blue-900 text-white rounded-xl font-bold hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">
-                            Submit Application
-                        </button>
-
-                    </div>
-                </form>
-                <div class="mt-6 pt-6 border-t border-slate-200 text-center">
-                    <p class="text-sm text-slate-500 mb-3">Already have an account?</p>
-                    <button onclick="switchTab('login')" class="text-blue-900 font-medium hover:underline">
-                        Sign in here <i class="fas fa-arrow-right ml-1"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Forgot Password Form -->
-            <div id="form-forgot" class="hidden">
-                <div class="text-center mb-6">
-                    <button onclick="switchTab('login')"
-                        class="text-sm text-slate-500 hover:text-blue-900 mb-4 flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to login
-                    </button>
-                    <h3 class="font-display text-2xl font-bold text-slate-900 mb-2">Reset Password</h3>
-                    <p class="text-sm text-slate-500">Enter your email and we'll send you a reset link</p>
-                </div>
-                <form onsubmit="event.preventDefault(); handleForgotPassword();">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-2">Business Email</label>
-                            <input type="email" id="forgot-email"
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 focus:border-blue-900 focus:outline-none transition"
-                                required>
-                        </div>
-                        <button type="submit"
-                            class="w-full py-4 bg-blue-900 text-white rounded-xl font-bold hover:bg-blue-800 transition">
-                            Send Reset Link
-                        </button>
-                    </div>
-                </form>
-            </div>
-
         </div>
+
+        <!-- LOGIN -->
+        <div id="form-login" class="hidden p-8 pt-6">
+
+            <div class="text-center mb-8">
+                <p class="tracking-[0.25em] uppercase text-[11px] mb-3"
+                    style="color:var(--gold);">
+                    Luxury Trade Access
+                </p>
+
+                <h3 class="font-display text-4xl mb-3"
+                    style="
+                        color: var(--ink);
+                        font-family:'Cormorant',serif;
+                    ">
+                    Welcome Back
+                </h3>
+
+                <p class="text-sm leading-7"
+                    style="color:var(--muted);">
+                    Sign in to access your trade pricing and exclusive collection.
+                </p>
+            </div>
+
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+
+                <div class="space-y-5">
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.18em] mb-3 font-medium"
+                            style="color:var(--warm);">
+                            Business Email
+                        </label>
+
+                        <input type="email" name="email"
+                            class="w-full px-5 py-4 outline-none transition"
+                            style="
+                                background: var(--bg);
+                                border:1px solid var(--ghost);
+                                border-radius: var(--r2);
+                                color: var(--ink);
+                            "
+                            placeholder="your@business.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.18em] mb-3 font-medium"
+                            style="color:var(--warm);">
+                            Password
+                        </label>
+
+                        <div class="relative">
+                            <input type="password" name="password" id="login-password"
+                                class="w-full px-5 py-4 outline-none transition"
+                                style="
+                                    background: var(--bg);
+                                    border:1px solid var(--ghost);
+                                    border-radius: var(--r2);
+                                    color: var(--ink);
+                                "
+                                placeholder="••••••••">
+
+                            <button type="button"
+                                onclick="togglePassword('login-password')"
+                                class="absolute right-4 top-1/2 -translate-y-1/2"
+                                style="color:var(--dim);">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-sm">
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox">
+                            <span style="color:var(--muted)">Remember me</span>
+                        </label>
+
+                        <a href="#"
+                            onclick="showForgotPassword()"
+                            class="hover:underline"
+                            style="color:var(--gold);">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-4 uppercase tracking-[0.18em] text-xs transition"
+                        style="
+                            background: var(--ink);
+                            color:#fff;
+                            border-radius: var(--r2);
+                            border:1px solid var(--ink);
+                        ">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="form-register" class="p-8 pt-6">
+
+            <div class="text-center mb-8">
+                <p class="tracking-[0.25em] uppercase text-[11px] mb-3"
+                    style="color:var(--gold);">
+                    Become A Partner
+                </p>
+
+                <h3 class="font-display text-4xl mb-3"
+                    style="
+                        color: var(--ink);
+                        font-family:'Cormorant',serif;
+                    ">
+                    Open Trade Account
+                </h3>
+            </div>
+
+            <form action="{{ route('register-customer') }}" method="POST">
+                @csrf
+
+                <div class="space-y-5">
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.18em] mb-3 font-medium"
+                            style="color:var(--warm);">
+                            Business Name
+                        </label>
+
+                        <input type="text" name="business_name"
+                            class="w-full px-5 py-4 outline-none transition"
+                            style="
+                                background: var(--bg);
+                                border:1px solid var(--ghost);
+                                border-radius: var(--r2);
+                            ">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.18em] mb-3 font-medium"
+                            style="color:var(--warm);">
+                            Full Name
+                        </label>
+
+                        <input type="text" name="name"
+                            class="w-full px-5 py-4 outline-none transition"
+                            style="
+                                background: var(--bg);
+                                border:1px solid var(--ghost);
+                                border-radius: var(--r2);
+                            ">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.18em] mb-3 font-medium"
+                            style="color:var(--warm);">
+                            Business Email
+                        </label>
+
+                        <input type="email" name="email"
+                            class="w-full px-5 py-4 outline-none transition"
+                            style="
+                                background: var(--bg);
+                                border:1px solid var(--ghost);
+                                border-radius: var(--r2);
+                            ">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.18em] mb-3 font-medium"
+                            style="color:var(--warm);">
+                            Phone
+                        </label>
+
+                        <input type="tel" name="phone"
+                            class="w-full px-5 py-4 outline-none transition"
+                            style="
+                                background: var(--bg);
+                                border:1px solid var(--ghost);
+                                border-radius: var(--r2);
+                            ">
+                    </div>
+
+                    <div class="flex items-start gap-3 text-sm leading-6">
+                        <input type="checkbox" required class="mt-1">
+
+                        <label style="color:var(--muted)">
+                            I agree to the
+                            <a href="#" style="color:var(--gold)">
+                                Terms of Trade
+                            </a>
+                            and confirm this is a legitimate business enquiry.
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-4 uppercase tracking-[0.18em] text-xs transition"
+                        style="
+                            background: var(--ink);
+                            color:#fff;
+                            border-radius: var(--r2);
+                            border:1px solid var(--ink);
+                        ">
+                        Submit Application
+                    </button>
+                </div>
+            </form>
+        </div>
+
     </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
@@ -1406,88 +1364,126 @@
 <script>
 
 // Profile dropdown
-        function toggleProfile() {
-            const dropdown = document.getElementById('profile-dropdown');
+       
+    function toggleProfile() {
+        const dropdown = document.getElementById('profile-dropdown');
+
+        if (dropdown) {
             dropdown.classList.toggle('active');
         }
+    }
 
-        // Close profile when clicking outside
-        document.addEventListener('click', (e) => {
-            const container = document.getElementById('profile-container');
-            const dropdown = document.getElementById('profile-dropdown');
-            if (!container.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-        // Tab switching functionality
-        function switchTab(tab) {
-            const loginTab = document.getElementById('tab-login');
-            const registerTab = document.getElementById('tab-register');
-            const loginForm = document.getElementById('form-login');
-            const registerForm = document.getElementById('form-register');
-            const forgotForm = document.getElementById('form-forgot');
+    // Close profile dropdown
+    document.addEventListener('click', (e) => {
 
-            // Reset all forms
-            forgotForm.classList.add('hidden');
+        const container = document.getElementById('profile-container');
+        const dropdown = document.getElementById('profile-dropdown');
 
-            if (tab === 'login') {
-                loginTab.classList.add('bg-white', 'text-blue-900', 'shadow-sm');
-                loginTab.classList.remove('text-slate-600');
-                registerTab.classList.remove('bg-white', 'text-blue-900', 'shadow-sm');
-                registerTab.classList.add('text-slate-600');
+        if (!container || !dropdown) return;
 
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-            } else {
-                registerTab.classList.add('bg-white', 'text-blue-900', 'shadow-sm');
-                registerTab.classList.remove('text-slate-600');
-                loginTab.classList.remove('bg-white', 'text-blue-900', 'shadow-sm');
-                loginTab.classList.add('text-slate-600');
-
-                registerForm.classList.remove('hidden');
-                loginForm.classList.add('hidden');
-            }
+        if (!container.contains(e.target)) {
+            dropdown.classList.remove('active');
         }
-        // Open modal
-        function openModal(type) {
-            const overlay = document.getElementById('modal-overlay');
-            const modal = document.getElementById('modal');
-            const content = document.getElementById('modal-content');
+    });
 
-            // Show tabs
-            document.querySelector('.flex.mb-6').classList.remove('hidden');
 
-            // Switch to appropriate tab
-            if (type === 'login') {
-                switchTab('login');
-            } else {
-                switchTab('register');
-            }
+    // TAB SWITCH
+    function switchTab(tab) {
 
-            overlay.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
+        const loginTab = document.getElementById('tab-login');
+        const registerTab = document.getElementById('tab-register');
+
+        const loginForm = document.getElementById('form-login');
+        const registerForm = document.getElementById('form-register');
+
+        if (!loginTab || !registerTab || !loginForm || !registerForm) return;
+
+        if (tab === 'login') {
+
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+
+            loginTab.style.background = 'var(--white)';
+            loginTab.style.color = 'var(--ink)';
+            loginTab.style.border = '1px solid var(--border)';
+
+            registerTab.style.background = 'transparent';
+            registerTab.style.color = 'var(--muted)';
+            registerTab.style.border = 'none';
+
+        } else {
+
+            registerForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+
+            registerTab.style.background = 'var(--white)';
+            registerTab.style.color = 'var(--ink)';
+            registerTab.style.border = '1px solid var(--border)';
+
+            loginTab.style.background = 'transparent';
+            loginTab.style.color = 'var(--muted)';
+            loginTab.style.border = 'none';
         }
+    }
 
-        // Close modal
-        function closeModal() {
-            const overlay = document.getElementById('modal-overlay');
-            const modal = document.getElementById('modal');
-            const content = document.getElementById('modal-content');
 
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
+    // OPEN MODAL
+    function openModal(type = 'register') {
 
-            // Reset to register tab after close
-            setTimeout(() => {
-                document.querySelector('.flex.mb-6').classList.remove('hidden');
-                switchTab('register');
-            }, 300);
+        const overlay = document.getElementById('modal-overlay');
+        const modal = document.getElementById('modal');
+        const content = document.getElementById('modal-content');
+
+        if (!overlay || !modal || !content) return;
+
+        if (type === 'login') {
+            switchTab('login');
+        } else {
+            switchTab('register');
         }
 
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+    }
+
+
+    // CLOSE MODAL
+    function closeModal() {
+
+        const overlay = document.getElementById('modal-overlay');
+        const modal = document.getElementById('modal');
+        const content = document.getElementById('modal-content');
+
+        if (!overlay || !modal || !content) return;
+
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+
+        modal.classList.add('opacity-0', 'pointer-events-none');
+
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+
+        setTimeout(() => {
+            switchTab('register');
+        }, 300);
+    }
+
+
+    // PASSWORD TOGGLE
+    function togglePassword(id) {
+
+        const input = document.getElementById(id);
+
+        if (!input) return;
+
+        input.type = input.type === 'password'
+            ? 'text'
+            : 'password';
+    }
 
 const WA='971500000000';
 
