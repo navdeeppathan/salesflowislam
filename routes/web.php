@@ -289,7 +289,10 @@ Route::middleware(['auth', 'role:inventory_manager'])->group(function () {
     Route::get('/inventory-page', function () {
         $categories = Category::all();
         // $products = Product::orderBy('id', 'desc')->get();
-        $products = Product::all();
+        // $products = Product::all();
+        $products = Product::with(['category', 'locations'])
+        ->latest()
+        ->paginate(10);
 
         return view('Inventory.inventory', compact('categories', 'products'));
     });

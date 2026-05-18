@@ -3,7 +3,7 @@
 @section('content')
     <style>
         :root {
-            --navy:  #0369A1; 
+            --navy:  #fdf5e0; 
             --royal: #1e40af;
             --gold: #d4af37;
             --emerald: #059669;
@@ -77,8 +77,7 @@
         .brand-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-            border-radius: 10px;
+            background: #000;            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -188,7 +187,7 @@
             gap: 12px;
             padding: 10px 16px;
             margin: 2px 0;
-            color: #cbd5e1;
+            color: #000;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.2s ease;
@@ -215,7 +214,7 @@
         }
 
         .nav-item.active {
-            background: rgba(30, 64, 175, 0.2);
+            background: #000;
             color: white;
             font-weight: 500;
         }
@@ -342,7 +341,7 @@
         .user-name {
             font-size: 14px;
             font-weight: 600;
-            color: white;
+            color: #000;
             white-space: nowrap;
         }
 
@@ -684,7 +683,7 @@
 
                     <!-- Actions -->
                     <div class="flex gap-2">
-                        <button class="flex-1 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold">
+                        <button class="flex-1 py-2 bg-black text-white rounded-lg text-sm font-semibold">
                             Track
                         </button>
                         {{-- <button class="flex-1 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-semibold">
@@ -922,7 +921,7 @@
 
                 <div class="flex gap-4 pt-4">
                     <button type="button" onclick="document.getElementById('add-driver-modal').classList.add('hidden')" class="flex-1 py-3 border border-slate-300 rounded-lg text-slate-600 font-semibold hover:bg-slate-50 transition">Cancel</button>
-                    <button type="submit" class="flex-1 py-3 bg-blue-600 rounded-lg text-white font-semibold hover:bg-blue-500 transition">Register Driver</button>
+                    <button type="submit" class="flex-1 py-3 bg-black rounded-lg text-white font-semibold hover:bg-blue-500 transition">Register Driver</button>
                 </div>
             </form>
         </div>

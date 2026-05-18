@@ -3,7 +3,7 @@
 @section('content')
     <style>
         :root {
-            --navy:  #0369A1; 
+            --navy:  #fdf5e0; 
             --royal: #1e40af;
             --gold: #d4af37;
             --emerald: #059669;
@@ -83,8 +83,7 @@
         .brand-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-            border-radius: 10px;
+            background: #000;            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,7 +193,7 @@
             gap: 12px;
             padding: 10px 16px;
             margin: 2px 0;
-            color: #cbd5e1;
+            color: #000;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.2s ease;
@@ -221,7 +220,7 @@
         }
     
         .nav-item.active {
-            background: rgba(30, 64, 175, 0.2);
+            background: #000;
             color: white;
             font-weight: 500;
         }
@@ -348,7 +347,7 @@
         .user-name {
             font-size: 14px;
             font-weight: 600;
-            color: white;
+            color: #000;
             white-space: nowrap;
         }
     
@@ -600,7 +599,7 @@
             </div>
             <div class="flex items-center gap-4">
                 <button onclick="document.getElementById('add-customer-modal').classList.remove('hidden')" 
-                        class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-semibold text-white transition">
+                        class="bg-black hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-semibold text-white transition">
                     + Add Customer
                 </button>
                 <button class="relative p-2 text-slate-600 hover:text-blue-900 transition" aria-label="Notifications">

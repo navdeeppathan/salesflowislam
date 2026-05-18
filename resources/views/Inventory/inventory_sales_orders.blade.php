@@ -4,7 +4,7 @@
 
     <style>
        :root {
-            --navy:  #0369A1; 
+            --navy:  #fdf5e0; 
             --royal: #1e40af;
             --gold: #d4af37;
             --emerald: #059669;
@@ -78,8 +78,7 @@
         .brand-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-            border-radius: 10px;
+            background: #000;            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -189,7 +188,7 @@
             gap: 12px;
             padding: 10px 16px;
             margin: 2px 0;
-            color: #cbd5e1;
+            color: #000;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.2s ease;
@@ -216,7 +215,7 @@
         }
 
         .nav-item.active {
-            background: rgba(30, 64, 175, 0.2);
+            background: #000;
             color: white;
             font-weight: 500;
         }
@@ -343,7 +342,7 @@
         .user-name {
             font-size: 14px;
             font-weight: 600;
-            color: white;
+            color: #000;
             white-space: nowrap;
         }
 

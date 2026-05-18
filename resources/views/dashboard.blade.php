@@ -12,7 +12,7 @@
     #sidebar:hover { width: 260px; }
     #main-content { margin-left: 80px; transition: 0.4s; }
     #sidebar:hover ~ #main-content { margin-left: 260px; }
-    .nav-item { display: flex; align-items: center; padding: 18px 28px; color: #94a3b8; white-space: nowrap; cursor: pointer; transition: 0.3s; }
+    .nav-item { display: flex; align-items: center; padding: 18px 28px; color: #000; white-space: nowrap; cursor: pointer; transition: 0.3s; }
     .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
     .nav-label { opacity: 0; transition: opacity 0.3s; margin-left: 25px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
     #sidebar:hover .nav-label { opacity: 1; }

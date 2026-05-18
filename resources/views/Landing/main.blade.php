@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
-            --navy:  #0369A1; 
+            --navy:  #fdf5e0; 
             --royal: #1e40af;
             --gold: #d4af37;
             --emerald: #059669;

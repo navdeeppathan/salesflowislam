@@ -7,8 +7,8 @@
                 <i class="fas fa-building text-white text-lg"></i>
             </div>
             <div class="brand-text">
-                <h1 class="font-display text-xl font-bold text-white tracking-tight">Mama Perfumes</h1>
-                <p class="text-xs text-slate-400 font-medium">Wholesale Fragrances · Dubai</p>
+                <h1 class="font-display text-xl font-bold text-black tracking-tight">Mama Perfumes</h1>
+                <p class="text-xs text-slate-400 font-medium">Wholesale Fragrances</p>
             </div>
         </div>
         <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" title="Collapse menu">

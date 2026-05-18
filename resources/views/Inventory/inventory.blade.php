@@ -3,7 +3,7 @@
 @section('content')
     <style>
         :root {
-            --navy:  #0369A1; 
+            --navy:  #fdf5e0; 
             --royal: #1e40af;
             --gold: #d4af37;
             --emerald: #059669;
@@ -77,8 +77,7 @@
         .brand-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-            border-radius: 10px;
+            background: #000;            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -188,7 +187,7 @@
             gap: 12px;
             padding: 10px 16px;
             margin: 2px 0;
-            color: #cbd5e1;
+            color: #000;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.2s ease;
@@ -215,7 +214,7 @@
         }
 
         .nav-item.active {
-            background: rgba(30, 64, 175, 0.2);
+            background: #000;
             color: white;
             font-weight: 500;
         }
@@ -342,7 +341,7 @@
         .user-name {
             font-size: 14px;
             font-weight: 600;
-            color: white;
+            color: #000;
             white-space: nowrap;
         }
 
@@ -431,7 +430,7 @@
         }
         .inventory-card:hover {
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-color: #cbd5e1;
+            border-color: #000;
         }
 
         /* Mobile Responsive */
@@ -497,7 +496,7 @@
                         <span class="absolute top-0 right-0 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-semibold">8</span>
                     </button>
                     <button onclick="document.getElementById('add-item-modal').classList.remove('hidden')" 
-                            class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-semibold text-white transition flex items-center gap-2">
+                            class="bg-black hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-semibold text-white transition flex items-center gap-2">
                         <i class="fas fa-plus"></i>
                         <span class="hidden sm:inline">Add Product</span>
                     </button>
@@ -783,7 +782,7 @@
                                         Edit Product
                                     </button>
 
-                                    <button  onclick="openLocationModal({{ $product->id }})" class="w-full py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-semibold text-white transition">Add Items</button>
+                                    <button  onclick="openLocationModal({{ $product->id }})" class="w-full py-2 bg-black hover:bg-blue-500 rounded-lg text-sm font-semibold text-white transition">Add Items</button>
 
 
                                     {{-- <button class="w-full py-2 bg-emerald-100 text-emerald-700 border rounded-lg text-sm font-semibold">
@@ -799,6 +798,10 @@
 
                
 
+            </div>
+            <!-- Pagination -->
+            <div class="mt-6">
+                {{ $products->links() }}
             </div>
         </div>
 
