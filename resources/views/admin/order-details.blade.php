@@ -154,7 +154,7 @@
             <div>
 
                 <div class="text-sm uppercase tracking-[3px] text-[#e8c868] mb-3">
-                    Mama Perfumes <br>
+                    Salesflowislam <br>
                     Wholesale Fragrances · Dubai
                 </div>
 

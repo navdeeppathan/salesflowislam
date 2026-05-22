@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mama Perfumes Dashboard</title>
+<title>Salesflowislam Dashboard</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="h-64 relative">
                                     <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                                        <span class="text-[80px] font-black italic">Mama Perfumes</span>
+                                        <span class="text-[80px] font-black italic">Salesflowislam</span>
                                     </div>
                                     <div class="absolute bottom-0 left-0 right-0 h-full flex items-end gap-2 border-l border-b pb-2 pl-2">
                                         @foreach($chartData as $index => $value)
@@ -237,7 +237,7 @@
                                 </div>
                                 <div class="h-64 relative">
                                     <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                                        <span class="text-[80px] font-black italic">Mama Perfumes</span>
+                                        <span class="text-[80px] font-black italic">Salesflowislam</span>
                                     </div>
                                     <div class="absolute bottom-0 left-0 right-0 h-full flex items-end gap-2 border-l border-b pb-2 pl-2">
                                         @foreach($monthlyChart as $index => $value)
@@ -320,7 +320,7 @@
                                 </div>
                                 <div class="h-64 relative">
                                     <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                                        <span class="text-[80px] font-black italic">Mama Perfumes</span>
+                                        <span class="text-[80px] font-black italic">Salesflowislam</span>
                                     </div>
                                     <div class="absolute bottom-0 left-0 right-0 h-full flex items-end gap-2 border-l border-b pb-2 pl-2">
                                         @foreach($forecastChart as $index => $value)
@@ -461,7 +461,7 @@
                             <div class="text-4xl mb-6">🔮</div>
                             <h4 class="text-2xl font-black text-slate-900 italic uppercase tracking-tighter mb-4">Neural Churn Prediction Active</h4>
                             <p class="text-slate-600 text-sm mb-10 leading-relaxed">
-                                Mama Perfumes's AI has identified <span class="text-red-400 font-bold italic">{{ $churnRiskCount }} shops</span> that are showing high-probability churn behavior.
+                                Salesflowislam's AI has identified <span class="text-red-400 font-bold italic">{{ $churnRiskCount }} shops</span> that are showing high-probability churn behavior.
                                 Targeted follow-ups have been automatically generated in the CRM.
                             </p>
                             <div class="grid md:grid-cols-3 gap-6">
@@ -589,7 +589,7 @@
                             <div class="text-4xl mb-6">⚙️</div>
                             <h4 class="text-2xl font-black text-slate-900 italic uppercase tracking-tighter mb-4">Neural Auto-Procurement Logic</h4>
                             <p class="text-slate-600 text-sm mb-10 leading-relaxed">
-                                Mama Perfumes's AI has automated procurement for <span class="text-emerald-400 font-bold italic">{{ $autoProcureCount }} high-velocity items</span>.
+                                Salesflowislam's AI has automated procurement for <span class="text-emerald-400 font-bold italic">{{ $autoProcureCount }} high-velocity items</span>.
                                 Reorder points are dynamically adjusted based on sales performance velocity.
                             </p>
                             <div class="grid md:grid-cols-3 gap-6">
@@ -719,7 +719,7 @@
                             <div class="text-4xl mb-6">🛑</div>
                             <h4 class="text-2xl font-black text-slate-900 italic uppercase tracking-tighter mb-4">Real-Time Shortage Resolution</h4>
                             <p class="text-slate-600 text-sm mb-10 leading-relaxed">
-                                Mama Perfumes's Logistics Layer has detected <span class="text-red-400 font-bold italic">{{ $shortagesCount }} shortages</span> during live delivery.
+                                Salesflowislam's Logistics Layer has detected <span class="text-red-400 font-bold italic">{{ $shortagesCount }} shortages</span> during live delivery.
                                 Financial credit notes have been automatically drafted in Xero/Sage.
                             </p>
                             <div class="grid md:grid-cols-3 gap-6">
@@ -991,7 +991,7 @@
                         <a href="#" class="hover:text-slate-900 transition">Security Architecture</a>
                         <a href="#" class="hover:text-slate-900 transition">Compliance</a>
                     </div>
-                    <div class="text-[9px] font-black text-slate-700 uppercase tracking-widest">© {{ now()->year }} Mama Perfumes. A Nexteck Enterprise Platform.</div>
+                    <div class="text-[9px] font-black text-slate-700 uppercase tracking-widest">© {{ now()->year }} Salesflowislam. A Nexteck Enterprise Platform.</div>
                 </div>
             </div>
         </footer>

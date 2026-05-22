@@ -528,7 +528,7 @@
                     <i class="fas fa-building text-white text-lg"></i>
                 </div>
                 <div class="brand-text">
-                    <h1 class="font-display text-xl font-bold text-white tracking-tight">Mama Perfumes</h1>
+                    <h1 class="font-display text-xl font-bold text-white tracking-tight">Salesflowislam</h1>
                     <p class="text-xs text-slate-400 font-medium">B2B Command Center</p>
                 </div>
             </div>

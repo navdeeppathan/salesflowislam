@@ -172,7 +172,7 @@
                             <i class="fas fa-building text-white"></i>
                         </div>
                         <div>
-                            <h1 class="font-display text-xl font-bold text-slate-900">Mama Perfumes</h1>
+                            <h1 class="font-display text-xl font-bold text-slate-900">Salesflowislam</h1>
                             <p class="text-xs text-slate-500">B2B WHOLESALE</p>
                         </div>
                     </a>

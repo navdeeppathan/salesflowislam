@@ -7,7 +7,7 @@
                 <i class="fas fa-building text-white text-lg"></i>
             </div>
             <div class="brand-text">
-                <h1 class="font-display text-xl font-bold text-black tracking-tight">Mama Perfumes</h1>
+                <h1 class="font-display text-xl font-bold text-black tracking-tight">Saleflowislam</h1>
                 <p class="text-xs text-slate-400 font-medium">Wholesale Fragrances</p>
             </div>
         </div>

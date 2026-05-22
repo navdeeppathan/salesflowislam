@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mama Perfumes Wholesale | B2B Brands</title>
+    <title>Salesflowislam Wholesale | B2B Brands</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
@@ -437,7 +437,7 @@
 
     <!-- Loader -->
     <div class="loader-container" id="loader">
-        <div class="loader-text font-display">Mama Perfumes</div>
+        <div class="loader-text font-display">Salesflowislam</div>
         <div class="mt-6 flex gap-3">
             <div class="w-3 h-3 bg-yellow-500 rounded-full animate-bounce"></div>
             <div class="w-3 h-3 bg-yellow-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
@@ -456,7 +456,7 @@
                         <i class="fas fa-building text-white text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="font-display text-2xl font-bold text-slate-900">Mama Perfumes</h1>
+                        <h1 class="font-display text-2xl font-bold text-slate-900">Salesflowislam</h1>
                         <p class="text-xs text-slate-500 tracking-widest font-medium">B2B WHOLESALE</p>
                     </div>
                 </a>
@@ -614,7 +614,7 @@
                     <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
                         <i class="fas fa-building text-white"></i>
                     </div>
-                    <span class="font-display text-xl font-bold">Mama Perfumes</span>
+                    <span class="font-display text-xl font-bold">Salesflowislam</span>
                 </div>
                 <button onclick="toggleMobileMenu()" class="p-2">
                     <i class="fas fa-times text-2xl text-slate-700"></i>
@@ -1045,7 +1045,7 @@
                             <i class="fas fa-building text-white"></i>
                         </div>
                         <div>
-                            <h3 class="font-display text-xl font-bold text-white">Mama Perfumes</h3>
+                            <h3 class="font-display text-xl font-bold text-white">Salesflowislam</h3>
                             <p class="text-xs">B2B WHOLESALE</p>
                         </div>
                     </div>
@@ -1083,14 +1083,14 @@
                     <ul class="space-y-2 text-sm">
                         <li><i class="fas fa-user mr-2"></i>Sarah Johnson (Your AM)</li>
                         <li><i class="fas fa-phone mr-2"></i>020 7946 0958 ext. 204</li>
-                        <li><i class="fas fa-envelope mr-2"></i>sarah.j@Mama Perfumeswholesale.co.uk</li>
+                        <li><i class="fas fa-envelope mr-2"></i>sarah.j@Salesflowislamwholesale.co.uk</li>
                         <li><i class="fas fa-map-marker-alt mr-2"></i>45 Industrial Way, Barking<br>London IG11 8TJ</li>
                     </ul>
                 </div>
             </div>
             <div
                 class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                <p>&copy; 2026 Mama Perfumes Wholesale London Ltd. All rights reserved.</p>
+                <p>&copy; 2026 Salesflowislam Wholesale London Ltd. All rights reserved.</p>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-white transition">Privacy</a>
                     <a href="#" class="hover:text-white transition">Terms of Trade</a>

@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="text-sm uppercase tracking-[4px] text-[#e8c868] mb-4">
-                    Mama Perfumes
+                    Salesflowislam
                 </div>
 
                 <h1 class="font-display text-4xl font-bold">

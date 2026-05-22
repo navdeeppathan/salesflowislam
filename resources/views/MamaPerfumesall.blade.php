@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<title>Mama Perfumes — Dubai Luxury Fragrances Wholesale</title>
+<title>Salesflowislam — Dubai Luxury Fragrances Wholesale</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -711,7 +711,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">
-    <span class="logo-name">Mama Perfumes</span>
+    <span class="logo-name">Salesflowislam</span>
     <span class="logo-sub">Wholesale Fragrances · Dubai</span>
   </a>
   <ul class="nav-links">
@@ -994,7 +994,7 @@
 <footer>
   <div class="ft-grid">
     <div>
-      <div class="ft-logo-name">Mama Perfumes</div>
+      <div class="ft-logo-name">Salesflowislam</div>
       <div class="ft-logo-sub">Luxury Fragrances — Wholesale Dubai</div>
       <div class="ft-desc">Dubai-based wholesale supplier of luxury Arabian fragrances. Pure oud, musk, amber and rose — sourced across the Middle East, shipped worldwide.</div>
       <div class="ft-arabic">نور العود · عطور فاخرة</div>

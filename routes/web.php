@@ -119,7 +119,7 @@ Route::get('/', function () {
         ->where('brand', '!=', '')
         ->distinct()
         ->pluck('brand');
-    return view('MamaPerfumes', compact('categories', 'products', 'brands'));
+    return view('index', compact('categories', 'products', 'brands'));
 });
 
 Route::get('/all-products', function () {

@@ -18,7 +18,7 @@
                     <tr>
                         <td style="background:#0f172a; padding:20px; text-align:center;">
                             <h1 style="color:#ffffff; margin:0; font-size:20px;">
-                                Mama Perfumes
+                                Salesflowislam
                             </h1>
                         </td>
                     </tr>
@@ -49,7 +49,7 @@
 
                             <p style="margin-top:30px; font-size:14px;">
                                 Regards,<br>
-                                <strong>Mama Perfumes</strong>
+                                <strong>Salesflowislam</strong>
                             </p>
 
                         </td>
@@ -58,7 +58,7 @@
                     <!-- FOOTER -->
                     <tr>
                         <td style="background:#f8fafc; padding:20px; text-align:center; font-size:12px; color:#64748b;">
-                            © {{ date('Y') }} Mama Perfumes. All rights reserved.
+                            © {{ date('Y') }} Salesflowislam. All rights reserved.
                         </td>
                     </tr>
 
